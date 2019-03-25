@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">RoomWordSample</string>
+    <string name="action_settings">Settings</string>
+    <string name="hint_expansion_id">Expansion ID</string>
+    <string name="hint_expansion">Expansion</string>
+    <string name="button_save">Save</string>
+    <string name="empty_not_saved">Expansion not saved because it is empty.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
