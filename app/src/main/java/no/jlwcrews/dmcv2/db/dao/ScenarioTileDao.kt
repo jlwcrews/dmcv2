@@ -12,6 +12,9 @@ interface ScenarioTileDao{
     @Query("select * from dmc_scenario_tiles where scenario_id=:scenarioId")
     fun getScenarioTiles(scenarioId: Int): LiveData<List<ScenarioTile>>
 
+    @Query("delete from dmc_scenario_tiles")
+    fun deleteAll()
+
     @Insert
     fun insert(vararg scenarioTile: ScenarioTile)
 

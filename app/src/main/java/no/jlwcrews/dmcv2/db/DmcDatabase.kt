@@ -25,7 +25,7 @@ import no.jlwcrews.dmcv2.db.dao.ExpansionDao
     ScenarioCard::class,
     ScenarioTile::class,
     Tile::class
-    ), version = 3)
+    ), version = 4)
 public abstract class DmcDatabase : RoomDatabase() {
 
     abstract fun actionDao(): ActionDao
@@ -84,6 +84,7 @@ public abstract class DmcDatabase : RoomDatabase() {
         }
 
         private fun populateExpansions(expansionDao: ExpansionDao) {
+            expansionDao.deleteAll()
             expansionDao.insert(Expansion(1,"Core Set"))
             expansionDao.insert(Expansion(2,"Uncounted Horrors"))
             expansionDao.insert(Expansion(3,"Endless Nightmares"))
@@ -93,18 +94,21 @@ public abstract class DmcDatabase : RoomDatabase() {
         }
 
         private fun populateActions(actionDao: ActionDao) {
+            actionDao.deleteAll()
             actionDao.insert(Action(1,"Move"))
             actionDao.insert(Action(2,"Attack"))
             actionDao.insert(Action(3,"Special"))
         }
 
         private fun populateMonsterTypes(monsterTypeDao: MonsterTypeDao){
+            monsterTypeDao.deleteAll()
             monsterTypeDao.insert(MonsterType(1,"Normal"))
             monsterTypeDao.insert(MonsterType(2,"Epic"))
             monsterTypeDao.insert(MonsterType(3,"Chapter"))
         }
 
         private fun populateScenarios(scenarioDao: ScenarioDao){
+            scenarioDao.deleteAll()
             scenarioDao.insert(
                 Scenario(
                     1,"Crawling Asphyxia","",1)
@@ -229,6 +233,7 @@ public abstract class DmcDatabase : RoomDatabase() {
                 1,
                 "Pistol"
             )
+            characterDao.deleteAll()
             characterDao.insert(characterArthur)
             characterDao.insert(characterFelicia)
             characterDao.insert(characterJared)
@@ -432,6 +437,7 @@ public abstract class DmcDatabase : RoomDatabase() {
                 1,
                 1
             )
+            monsterDao.deleteAll()
             monsterDao.insert(monsterAgony)
             monsterDao.insert(monsterBathophobia1)
             monsterDao.insert(monsterBathophobia2)
@@ -450,12 +456,14 @@ public abstract class DmcDatabase : RoomDatabase() {
         }
 
         private fun populateTiles(tileDao: TileDao){
+            tileDao.deleteAll()
             for (i in 1..30){
                 tileDao.insert(Tile(i))
             }
         }
 
         private fun populateMonsterActions(monsterActionDao: MonsterActionDao){
+            monsterActionDao.deleteAll()
             monsterActionDao.insert(MonsterAction(1,1,1))
             monsterActionDao.insert(MonsterAction(1,2,2))
             monsterActionDao.insert(MonsterAction(2,3,1))
@@ -500,6 +508,7 @@ public abstract class DmcDatabase : RoomDatabase() {
         }
 
         private fun populateScenarioTiles(scenarioTileDao: ScenarioTileDao){
+            scenarioTileDao.deleteAll()
             scenarioTileDao.insert(ScenarioTile(1, 4, "Room"))
             scenarioTileDao.insert(ScenarioTile(1, 10, "Room"))
             scenarioTileDao.insert(ScenarioTile(1, 17, "Room"))

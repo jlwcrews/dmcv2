@@ -13,6 +13,9 @@ interface MonsterActionDao{
     @Query("select * from dmc_monster_actions where monster_id = :monsterId")
     fun getActionsForMonster(monsterId: Int): LiveData<List<MonsterAction>>
 
+    @Query("delete from dmc_monster_actions")
+    fun deleteAll()
+
     @Insert
     fun insert(vararg monsterAction: MonsterAction)
 

@@ -16,6 +16,9 @@ interface ActionDao{
     @Query("select * from dmc_actions where action_name = :actionName")
     fun getActionByName(actionName: String): Action
 
+    @Query("delete from dmc_actions")
+    fun deleteAll()
+
     @Insert
     fun insert(vararg action: Action)
 

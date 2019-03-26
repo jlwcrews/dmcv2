@@ -9,6 +9,9 @@ interface TileDao{
     @Query("select * from dmc_tiles")
     fun getAllTiles(): LiveData<List<Tile>>
 
+    @Query("delete from dmc_tiles")
+    fun deleteAll()
+
     @Insert
     fun insert(vararg tile: Tile)
 

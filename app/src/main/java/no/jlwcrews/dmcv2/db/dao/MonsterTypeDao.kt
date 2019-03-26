@@ -13,6 +13,9 @@ interface MonsterTypeDao{
     @Query("select * from dmc_monster_types where monster_type_id = :monsterTypeId")
     fun getMonsterType(monsterTypeId: Int): MonsterType
 
+    @Query("delete from dmc_monster_types")
+    fun deleteAll()
+
     @Insert
     fun insert(vararg monsterType: MonsterType)
 
