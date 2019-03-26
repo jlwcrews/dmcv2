@@ -9,10 +9,7 @@ import no.jlwcrews.dmc.db.dao.TileDao
 import no.jlwcrews.dmc.db.entities.Scenario
 import no.jlwcrews.dmc.db.entities.ScenarioTile
 
-class ScenarioRepo(private val scenarioDao: ScenarioDao,
-                   private val tileDao: TileDao,
-                   private val scenarioTileDao: ScenarioTileDao,
-                   private val scenarioCardDao: ScenarioCardDao) {
+class ScenarioRepo(private val scenarioDao: ScenarioDao) {
 
 
     val allScenarios: LiveData<List<Scenario>> = scenarioDao.getAllScenarios()
