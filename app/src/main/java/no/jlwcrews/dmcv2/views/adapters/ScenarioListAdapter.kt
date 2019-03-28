@@ -17,17 +17,21 @@ class ScenarioListAdapter internal constructor(
     private var scenarios = emptyList<Scenario>() // Cached copy of words
 
     inner class ScenarioViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val scenarioItemView: TextView = itemView.findViewById(R.id.textView)
+        val scenarioIdView: TextView = itemView.findViewById(R.id.scenarioIdView)
+        val scenarioNameView: TextView = itemView.findViewById(R.id.scenarioNameView)
+        val scenarioExpansionView: TextView = itemView.findViewById(R.id.scenarioExpansionIdView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScenarioViewHolder {
-        val itemView = inflater.inflate(R.layout.recyclerview_item, parent, false)
+        val itemView = inflater.inflate(R.layout.recyclerview_expansion, parent, false)
         return ScenarioViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: ScenarioViewHolder, position: Int) {
         val current = scenarios[position]
-        holder.scenarioItemView.text = current.scenarioName
+        holder.scenarioIdView.text = current.scenarioId.toString()
+        holder.scenarioNameView.text = current.scenarioName
+        holder.scenarioExpansionView.text = current.scenarioExpansionId.toString()
     }
 
     internal fun setScenarios(scenarios: List<Scenario>) {

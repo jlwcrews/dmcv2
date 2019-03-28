@@ -8,14 +8,19 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
-import kotlinx.android.synthetic.main.activity_new_game_setup.*
+import androidx.recyclerview.selection.SelectionPredicates
+import androidx.recyclerview.selection.SelectionTracker
+import androidx.recyclerview.selection.StableIdKeyProvider
+import androidx.recyclerview.selection.StorageStrategy
 import no.jlwcrews.dmcv2.R
 import no.jlwcrews.dmcv2.viewmodels.ExpansionViewModel
 import no.jlwcrews.dmcv2.views.adapters.ExpansionListAdapter
+import no.jlwcrews.dmcv2.views.adapters.ExpansionLookup
 
 class NewGameSetupActivity : AppCompatActivity() {
 
     private lateinit var expansionViewModel: ExpansionViewModel
+    private var tracker: SelectionTracker<Long>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +36,21 @@ class NewGameSetupActivity : AppCompatActivity() {
             // Update the cached copy of the words in the adapter.
             expansions?.let { adapter.setExpansions(it) }
         })
+
+        tracker = SelectionTracker.Builder<Long>(
+            "selection",
+            recyclerView,
+            StableIdKeyProvider(recyclerView),
+            ExpansionLookup(recyclerView),
+            StorageStrategy.createLongStorage()
+        ).withSelectionPredicate(
+            SelectionPredicates.createSelectAnything()
+        ).build()
+
+        if(savedInstanceState != null)
+            tracker?.onRestoreInstanceState(savedInstanceState)
+
+        adapter.tracker = tracker
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -47,5 +67,12 @@ class NewGameSetupActivity : AppCompatActivity() {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+
+        if(outState != null)
+            tracker?.onSaveInstanceState(outState)
     }
 }

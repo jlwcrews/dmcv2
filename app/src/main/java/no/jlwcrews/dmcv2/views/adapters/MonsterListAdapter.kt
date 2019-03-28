@@ -17,17 +17,19 @@ class MonsterListAdapter internal constructor(
     private var monsters = emptyList<Monster>() // Cached copy of words
 
     inner class MonsterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val monsterItemView: TextView = itemView.findViewById(R.id.textView)
+        val monsterIdView: TextView = itemView.findViewById(R.id.monsterIdView)
+        val monsterNameView: TextView = itemView.findViewById(R.id.monsterNameView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MonsterViewHolder {
-        val itemView = inflater.inflate(R.layout.recyclerview_item, parent, false)
+        val itemView = inflater.inflate(R.layout.recyclerview_expansion, parent, false)
         return MonsterViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: MonsterViewHolder, position: Int) {
         val current = monsters[position]
-        holder.monsterItemView.text = current.monsterName
+        holder.monsterIdView.text = current.monsterId.toString()
+        holder.monsterNameView.text = current.monsterName
     }
 
     internal fun setMonsters(monsters: List<Monster>) {

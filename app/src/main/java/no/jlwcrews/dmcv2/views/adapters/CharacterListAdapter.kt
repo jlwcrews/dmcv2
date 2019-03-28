@@ -17,17 +17,19 @@ class CharacterListAdapter internal constructor(
     private var characters = emptyList<PlayerCharacter>() // Cached copy of words
 
     inner class CharacterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val characterItemView: TextView = itemView.findViewById(R.id.textView)
+        val characterNameView: TextView = itemView.findViewById(R.id.characterNameView)
+        val characterRoleView: TextView = itemView.findViewById(R.id.characterRoleView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
-        val itemView = inflater.inflate(R.layout.recyclerview_item, parent, false)
+        val itemView = inflater.inflate(R.layout.recyclerview_expansion, parent, false)
         return CharacterViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
         val current = characters[position]
-        holder.characterItemView.text = current.characterName
+        holder.characterNameView.text = current.characterName
+        holder.characterRoleView.text = current.characterRole
     }
 
     internal fun setCharacters(characters: List<PlayerCharacter>) {
