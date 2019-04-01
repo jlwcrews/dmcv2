@@ -29,7 +29,6 @@ class ExpansionListAdapter internal constructor(context: Context) : RecyclerView
 
     override fun onBindViewHolder(holder: ExpansionViewHolder, position: Int) {
         val current = expansions[position]
-        holder.expansionIdView.text = current.expansionId.toString()
         holder.expansionNameView.text = current.expansionName
 
         tracker?.let { holder.bind(current, it.isSelected(position.toLong())) }
@@ -51,11 +50,9 @@ class ExpansionListAdapter internal constructor(context: Context) : RecyclerView
     override fun getItemCount() = expansions.size
 
     inner class ExpansionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val expansionIdView: TextView = itemView.findViewById(R.id.expansionIdView)
         val expansionNameView: TextView = itemView.findViewById(R.id.expansionNameView)
 
         fun bind(value: Expansion, isActivated: Boolean = false) {
-            expansionIdView.text = value.expansionId.toString()
             expansionNameView.text = value.expansionName
             itemView.isActivated = isActivated
         }

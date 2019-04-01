@@ -17,7 +17,7 @@ import no.jlwcrews.dmcv2.viewmodels.ExpansionViewModel
 import no.jlwcrews.dmcv2.views.adapters.ExpansionListAdapter
 import no.jlwcrews.dmcv2.views.adapters.ExpansionLookup
 
-class NewGameSetupActivity : AppCompatActivity() {
+class NewGameSetupExpansionActivity : AppCompatActivity() {
 
     private lateinit var expansionViewModel: ExpansionViewModel
     private var tracker: SelectionTracker<Long>? = null

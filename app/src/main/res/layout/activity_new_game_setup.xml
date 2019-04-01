@@ -22,4 +22,11 @@
 
     <include layout="@layout/content_main"/>
 
+    <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="@string/next" />
+
+
 </android.support.design.widget.CoordinatorLayout>

@@ -4,8 +4,8 @@
               android:layout_height="wrap_content" tools:ignore="ExtraText"
               android:background="@drawable/item_background">
 
-    <TextView
-            android:id="@+id/expansionIdView"
+    <CheckBox
+            android:id="@+id/checkBoxExpansion"
             style="@style/recycler_list_item"
             android:layout_width="100dp"
             android:layout_height="wrap_content"

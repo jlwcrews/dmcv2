@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         newGameBtn.setOnClickListener {
-            val newGameIntent: Intent = Intent(this, NewGameSetupActivity::class.java)
+            val newGameIntent: Intent = Intent(this, NewGameSetupExpansionActivity::class.java)
             startActivity(newGameIntent)
         }
 
