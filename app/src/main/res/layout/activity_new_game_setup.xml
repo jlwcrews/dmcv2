@@ -10,6 +10,7 @@
     <include layout="@layout/content_main"/>
 
     <Button
+            android:id="@+id/expansionNextButton"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"

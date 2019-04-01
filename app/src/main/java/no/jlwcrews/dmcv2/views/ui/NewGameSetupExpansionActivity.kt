@@ -2,10 +2,12 @@ package no.jlwcrews.dmcv2.views.ui
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_new_game_setup.*
 import no.jlwcrews.dmcv2.R
 import no.jlwcrews.dmcv2.viewmodels.ExpansionViewModel
 import no.jlwcrews.dmcv2.views.adapters.ExpansionListAdapter
@@ -28,8 +30,10 @@ class NewGameSetupExpansionActivity : AppCompatActivity() {
             expansions?.let { adapter.setExpansions(it) }
         })
 
-        recyclerView.setOnClickListener{
-
+        expansionNextButton.setOnClickListener {
+            val scenarioSelectIntent: Intent = Intent(this, NewGameSetupScenarioActivity::class.java)
+            startActivity(scenarioSelectIntent)
         }
+
     }
 }

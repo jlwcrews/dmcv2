@@ -14,7 +14,7 @@ class ExpansionListAdapter internal constructor(context: Context) : RecyclerView
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var expansions = emptyList<Expansion>()
-    private var selectedExpansions: MutableMap<Int, Boolean> = mutableMapOf()
+    var selectedExpansions: MutableMap<Int, Boolean> = mutableMapOf()
 
     init {
         setHasStableIds(true)
