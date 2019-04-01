@@ -5,10 +5,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.recyclerview.selection.ItemDetailsLookup
-import androidx.recyclerview.selection.SelectionTracker
+import kotlinx.android.synthetic.main.recyclerview_expansion.view.*
 import no.jlwcrews.dmcv2.R
 import no.jlwcrews.dmcv2.db.entities.Expansion
 
@@ -16,7 +14,7 @@ class ExpansionListAdapter internal constructor(context: Context) : RecyclerView
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var expansions = emptyList<Expansion>()
-    var tracker: SelectionTracker<Long>? = null
+    private var selectedExpansions: MutableMap<Int, Boolean> = mutableMapOf()
 
     init {
         setHasStableIds(true)
@@ -29,13 +27,11 @@ class ExpansionListAdapter internal constructor(context: Context) : RecyclerView
 
     override fun onBindViewHolder(holder: ExpansionViewHolder, position: Int) {
         val current = expansions[position]
+
+        holder.itemView.checkBoxExpansion.setOnClickListener{
+            selectedExpansions.set(current.expansionId, holder.itemView.checkBoxExpansion.isChecked)
+        }
         holder.expansionNameView.text = current.expansionName
-
-        tracker?.let { holder.bind(current, it.isSelected(position.toLong())) }
-
-        val parent = holder.expansionNameView.parent as LinearLayout
-
-
     }
 
     override fun getItemId(position: Int): Long {
@@ -56,13 +52,5 @@ class ExpansionListAdapter internal constructor(context: Context) : RecyclerView
             expansionNameView.text = value.expansionName
             itemView.isActivated = isActivated
         }
-
-        fun getExpansionDetails(): ItemDetailsLookup.ItemDetails<Long> =
-            object: ItemDetailsLookup.ItemDetails<Long>() {
-                override fun getPosition(): Int = adapterPosition
-
-                override fun getSelectionKey(): Long? = itemId
-            }
     }
-
 }
