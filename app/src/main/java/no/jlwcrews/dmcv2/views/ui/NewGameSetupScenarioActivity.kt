@@ -11,9 +11,10 @@ class NewGameSetupScenarioActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_game_setup_scenario)
-        val selectedExpansions: List<Int> = intent.getSerializableExtra("expansionList") as MutableList<Int>
+        //val selectedExpansions: List<Int> = intent.getSerializableExtra("expansionList") as MutableList<Int>
+        val selectedExpansions: Map<Int, Boolean> = intent.getSerializableExtra("expansionList") as Map<Int, Boolean>
         selectedExpansions.map {
-            println(it)
+            println("id = ${it.key}, value = ${it.value}")
         }
     }
 }
