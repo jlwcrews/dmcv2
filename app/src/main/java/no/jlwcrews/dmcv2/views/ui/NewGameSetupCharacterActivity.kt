@@ -14,7 +14,6 @@ import no.jlwcrews.dmcv2.views.adapters.ScenarioListAdapter
 
 class NewGameSetupCharacterActivity : AppCompatActivity() {
 
-    private lateinit var selectedExpansions: Map<Int, Boolean>
     private lateinit var characterViewModel: CharacterViewModel
     lateinit var expansionList: List<Int>
 
@@ -23,7 +22,7 @@ class NewGameSetupCharacterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_new_game_setup_character)
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerviewCharacter)
         val adapter = CharacterListAdapter(this)
-        expansionList = handleExpansionList()
+        expansionList = intent.getSerializableExtra("expansionList") as List<Int>
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
         characterViewModel = ViewModelProviders.of(this).get(CharacterViewModel::class.java)
@@ -31,16 +30,5 @@ class NewGameSetupCharacterActivity : AppCompatActivity() {
         characterViewModel.characters.observe(this, Observer { characters ->
             characters?.let { adapter.setCharacters(it) }
         })
-    }
-
-    private fun handleExpansionList(): List<Int>{
-        selectedExpansions = intent.getSerializableExtra("expansionList") as Map<Int, Boolean>
-        val expansionList: MutableList<Int> = mutableListOf()
-        selectedExpansions.map {
-            if (it.value){
-                expansionList.add(it.key)
-            }
-        }
-        return expansionList
     }
 }
