@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_new_game_setup.*
 import no.jlwcrews.dmcv2.R
 import no.jlwcrews.dmcv2.viewmodels.ExpansionViewModel
 import no.jlwcrews.dmcv2.views.adapters.ExpansionListAdapter
+import java.io.Serializable
 
 class NewGameSetupExpansionActivity : AppCompatActivity() {
 
@@ -32,6 +33,16 @@ class NewGameSetupExpansionActivity : AppCompatActivity() {
 
         expansionNextButton.setOnClickListener {
             val scenarioSelectIntent: Intent = Intent(this, NewGameSetupScenarioActivity::class.java)
+
+            //begin ridiculous nonsense to be able to pass data
+            var expansionArrayList = mutableListOf<Int>()
+            adapter.selectedExpansions.map {
+                if (it.value){
+                    expansionArrayList.add(it.key)
+                }
+            }
+            scenarioSelectIntent.putExtra("expansionList", expansionArrayList as Serializable)
+
             startActivity(scenarioSelectIntent)
         }
 
