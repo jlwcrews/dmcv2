@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_new_game_setup.*
+import kotlinx.android.synthetic.main.activity_new_game_setup_expansion.*
 import no.jlwcrews.dmcv2.R
 import no.jlwcrews.dmcv2.viewmodels.ExpansionViewModel
 import no.jlwcrews.dmcv2.views.adapters.ExpansionListAdapter
@@ -19,8 +19,8 @@ class NewGameSetupExpansionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new_game_setup)
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
+        setContentView(R.layout.activity_new_game_setup_expansion)
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerviewExpansion)
         val adapter = ExpansionListAdapter(this)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)

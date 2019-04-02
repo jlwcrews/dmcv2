@@ -47,10 +47,5 @@ class ExpansionListAdapter internal constructor(context: Context) : RecyclerView
 
     inner class ExpansionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val expansionNameView: TextView = itemView.findViewById(R.id.expansionNameView)
-
-        fun bind(value: Expansion, isActivated: Boolean = false) {
-            expansionNameView.text = value.expansionName
-            itemView.isActivated = isActivated
-        }
     }
 }
