@@ -14,7 +14,7 @@ class CharacterListAdapter internal constructor(
 ) : RecyclerView.Adapter<CharacterListAdapter.CharacterViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private var characters = emptyList<PlayerCharacter>() // Cached copy of words
+    private var characters = emptyList<PlayerCharacter>()
 
     inner class CharacterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val characterNameView: TextView = itemView.findViewById(R.id.characterNameView)

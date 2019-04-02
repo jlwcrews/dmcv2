@@ -9,12 +9,10 @@ import android.widget.TextView
 import no.jlwcrews.dmc.db.entities.Scenario
 import no.jlwcrews.dmcv2.R
 
-
 class ScenarioListAdapter internal constructor(context: Context) : RecyclerView.Adapter<ScenarioListAdapter.ScenarioViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var scenarios = emptyList<Scenario>()
-    var selectedScenarios: MutableMap<Int, Boolean> = mutableMapOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScenarioViewHolder {
         val itemView = inflater.inflate(R.layout.recyclerview_scenario, parent, false)

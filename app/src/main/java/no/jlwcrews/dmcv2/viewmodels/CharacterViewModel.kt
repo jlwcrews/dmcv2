@@ -21,16 +21,19 @@ class CharacterViewModel(application: Application) : AndroidViewModel(applicatio
     private val scope = CoroutineScope(coroutineContext)
 
     private val repository: CharacterRepo
-    lateinit var allCharacters: LiveData<List<PlayerCharacter>>
+    lateinit var characters: LiveData<List<PlayerCharacter>>
 
     init {
         val characterDao = DmcDatabase.getDatabase(application, scope).characterDao()
         repository = CharacterRepo(characterDao)
-        allCharacters = repository.allCharacters
     }
 
     fun insert(character: PlayerCharacter) = scope.launch(Dispatchers.IO) {
         repository.insert(character)
+    }
+
+    fun initCharacters(expansions: List<Int>){
+        characters = repository.selectedCharacters(expansions)
     }
 
     override fun onCleared() {

@@ -13,8 +13,8 @@ interface CharacterDao{
     @Query("delete from dmc_characters")
     fun deleteAll()
 
-    @Query("select * from dmc_characters where character_expansion_id=:expansionId")
-    fun getCharactersByExpansion(expansionId: Int): LiveData<List<PlayerCharacter>>
+    @Query("select * from dmc_characters where character_expansion_id IN (:expansionId)")
+    fun getCharactersByExpansion(expansionId: List<Int>): LiveData<List<PlayerCharacter>>
 
     @Query("select * from dmc_characters where character_id = :characterId")
     fun getCharacter(characterId: Int): PlayerCharacter
