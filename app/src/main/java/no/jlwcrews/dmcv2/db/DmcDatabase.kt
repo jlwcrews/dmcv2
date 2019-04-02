@@ -141,6 +141,11 @@ public abstract class DmcDatabase : RoomDatabase() {
                 Scenario(
                     8,"The Substance of Terror","",1)
             )
+            scenarioDao.insert(
+                Scenario(
+                    9,"Complete Bullshit","",2)
+            )
+
         }
 
         private fun populateCharacters(characterDao: CharacterDao){

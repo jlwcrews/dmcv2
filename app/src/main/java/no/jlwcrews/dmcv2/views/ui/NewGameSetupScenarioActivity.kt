@@ -12,22 +12,33 @@ import no.jlwcrews.dmcv2.views.adapters.ScenarioListAdapter
 
 class NewGameSetupScenarioActivity : AppCompatActivity() {
 
-    var selectedExpansions: HashMap<Int, Boolean> = hashMapOf()
+    private lateinit var selectedExpansions: Map<Int, Boolean>
     private lateinit var scenarioViewModel: ScenarioViewModel
+    lateinit var expansionList: List<Int>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_game_setup_scenario)
-        val selectedExpansions: Map<Int, Boolean> = intent.getSerializableExtra("expansionList") as Map<Int, Boolean>
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerviewScenario)
         val adapter = ScenarioListAdapter(this)
+        expansionList = handleExpansionList()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
         scenarioViewModel = ViewModelProviders.of(this).get(ScenarioViewModel::class.java)
-
-        scenarioViewModel.allScenarios.observe(this, Observer { scenarios ->
-            // Update the cached copy of the words in the adapter.
+        scenarioViewModel.initScenarios(expansionList)
+        scenarioViewModel.scenarios.observe(this, Observer { scenarios ->
             scenarios?.let { adapter.setScenarios(it) }
         })
+    }
+
+    private fun handleExpansionList(): List<Int>{
+        selectedExpansions = intent.getSerializableExtra("expansionList") as Map<Int, Boolean>
+        val expansionList: MutableList<Int> = mutableListOf()
+        selectedExpansions.map {
+            if (it.value){
+                expansionList.add(it.key)
+            }
+        }
+        return expansionList
     }
 }
