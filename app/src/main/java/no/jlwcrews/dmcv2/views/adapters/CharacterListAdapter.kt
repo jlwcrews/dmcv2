@@ -16,13 +16,8 @@ class CharacterListAdapter internal constructor(
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var characters = emptyList<PlayerCharacter>()
 
-    inner class CharacterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val characterNameView: TextView = itemView.findViewById(R.id.characterNameView)
-        val characterRoleView: TextView = itemView.findViewById(R.id.characterRoleView)
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
-        val itemView = inflater.inflate(R.layout.recyclerview_expansion, parent, false)
+        val itemView = inflater.inflate(R.layout.recyclerview_character, parent, false)
         return CharacterViewHolder(itemView)
     }
 
@@ -38,4 +33,9 @@ class CharacterListAdapter internal constructor(
     }
 
     override fun getItemCount() = characters.size
+
+    inner class CharacterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val characterNameView: TextView = itemView.findViewById(R.id.characterNameView)
+        val characterRoleView: TextView = itemView.findViewById(R.id.characterRoleView)
+    }
 }

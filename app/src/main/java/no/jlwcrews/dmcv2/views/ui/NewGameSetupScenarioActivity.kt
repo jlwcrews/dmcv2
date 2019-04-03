@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_new_game_setup_character.*
+import kotlinx.android.synthetic.main.activity_new_game_setup_scenario.*
 import no.jlwcrews.dmcv2.R
 import no.jlwcrews.dmcv2.viewmodels.ScenarioViewModel
 import no.jlwcrews.dmcv2.views.adapters.ScenarioListAdapter
@@ -33,11 +33,11 @@ class NewGameSetupScenarioActivity : AppCompatActivity() {
             scenarios?.let { adapter.setScenarios(it) }
         })
 
-        /*characterNextButton.setOnClickListener {
+        scenarioNextButton.setOnClickListener {
             val characterSelectIntent: Intent = Intent(this, NewGameSetupCharacterActivity::class.java)
             characterSelectIntent.putExtra("expansionList", expansionList as Serializable)
             startActivity(characterSelectIntent)
-        }*/
+        }
     }
 
     private fun handleExpansionList(): List<Int>{

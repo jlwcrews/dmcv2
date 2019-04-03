@@ -238,6 +238,21 @@ public abstract class DmcDatabase : RoomDatabase() {
                 1,
                 "Pistol"
             )
+            val characterBogus: PlayerCharacter = PlayerCharacter(
+                9,
+                "Ted Smith",
+                10,
+                3,
+                "Chef",
+                "Confronting the Darkness",
+                "Once per activation, you may move a non-epic monster on the board 1 space toward " +
+                        "you.",
+                "No One Left Behind",
+                "Move: You may exhaust 1 sanity to ignore monster's trap and/or choose an investigator " +
+                        "in your space to move with you.",
+                2,
+                "SMG"
+            )
             characterDao.deleteAll()
             characterDao.insert(characterArthur)
             characterDao.insert(characterFelicia)
@@ -245,6 +260,7 @@ public abstract class DmcDatabase : RoomDatabase() {
             characterDao.insert(characterRandi)
             characterDao.insert(characterRoman)
             characterDao.insert(characterSamuel)
+            characterDao.insert(characterBogus)
         }
 
         private fun populateMonsters(monsterDao: MonsterDao){
