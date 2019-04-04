@@ -36,7 +36,7 @@ class CharacterListAdapter internal constructor(
             if (holder.itemView.checkBoxCharacter.isChecked){
                 if (count >= maximumCharacters){
                     holder.itemView.checkBoxCharacter.isChecked = false
-                    Toast.makeText(context, "Maximum of 6 characters.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Maximum of 6 characters.", Toast.LENGTH_LONG).show()
                 } else{
                     characterList.set(current.characterId, true)
                     count++
