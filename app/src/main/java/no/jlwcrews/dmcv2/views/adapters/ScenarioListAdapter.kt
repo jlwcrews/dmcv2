@@ -14,7 +14,7 @@ class ScenarioListAdapter internal constructor(context: Context) : RecyclerView.
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var scenarios = emptyList<Scenario>()
-    var currentRadioButtonPosition: Int = 0
+    var currentRadioButtonPosition: Int = -1
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScenarioViewHolder {
@@ -24,11 +24,7 @@ class ScenarioListAdapter internal constructor(context: Context) : RecyclerView.
 
     override fun onBindViewHolder(holder: ScenarioViewHolder, position: Int) {
         val current = scenarios[position]
-
-        holder.itemView.scenarioRadioButton.setOnClickListener{
-            currentRadioButtonPosition = current.scenarioId
-            println("Current selected is: $currentRadioButtonPosition")
-        }
+        holder.bindItems(current, position, currentRadioButtonPosition)
 
         holder.scenarioNameView.text = current.scenarioName
         holder.scenarioExpansionIdView.text = current.scenarioExpansionId.toString()
@@ -48,5 +44,20 @@ class ScenarioListAdapter internal constructor(context: Context) : RecyclerView.
     inner class ScenarioViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val scenarioNameView: TextView = itemView.findViewById(R.id.scenarioNameView)
         val scenarioExpansionIdView: TextView = itemView.findViewById(R.id.scenarioExpansionIdView)
+
+        fun bindItems(scenario: Scenario, position: Int, selectedPosition: Int){
+            itemView.scenarioRadioButton.tag = scenario.scenarioId
+
+            when {
+                selectedPosition == -1 && position == 0 -> itemView.scenarioRadioButton.isChecked = true
+                selectedPosition == position -> itemView.scenarioRadioButton.isChecked = true
+                else -> itemView.scenarioRadioButton.isChecked = false
+            }
+
+            itemView.scenarioRadioButton.setOnClickListener {
+                currentRadioButtonPosition = adapterPosition
+                notifyDataSetChanged()
+            }
+        }
     }
 }
