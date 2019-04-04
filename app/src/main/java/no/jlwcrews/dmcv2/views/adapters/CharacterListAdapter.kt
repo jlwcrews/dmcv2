@@ -17,8 +17,8 @@ class CharacterListAdapter internal constructor(
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var characters = emptyList<PlayerCharacter>()
-    private var count: Int = 0
-    private val minimumCharacters: Int = 4
+    var count: Int = 0
+    val minimumCharacters: Int = 4
     private val maximumCharacters: Int = 6
     private var characterList: MutableMap<Int, Boolean> = mutableMapOf()
 

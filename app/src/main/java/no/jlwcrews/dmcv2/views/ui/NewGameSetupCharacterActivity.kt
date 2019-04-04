@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_new_game_setup_character.*
 import no.jlwcrews.dmcv2.R
 import no.jlwcrews.dmcv2.viewmodels.CharacterViewModel
@@ -33,10 +34,13 @@ class NewGameSetupCharacterActivity : AppCompatActivity() {
         })
 
         characterNextButton.setOnClickListener {
-            val monsterSelectIntent: Intent = Intent(this, NewGameSetupMonsterActivity::class.java)
-            monsterSelectIntent.putExtra("expansionList", expansionList as Serializable)
-            startActivity(monsterSelectIntent)
+            if(adapter.count >= adapter.minimumCharacters){
+                val monsterSelectIntent: Intent = Intent(this, NewGameSetupMonsterActivity::class.java)
+                monsterSelectIntent.putExtra("expansionList", expansionList as Serializable)
+                startActivity(monsterSelectIntent)
+            } else {
+                Toast.makeText(this, "You must select at least four characters.", Toast.LENGTH_LONG).show()
+            }
         }
-
     }
 }
