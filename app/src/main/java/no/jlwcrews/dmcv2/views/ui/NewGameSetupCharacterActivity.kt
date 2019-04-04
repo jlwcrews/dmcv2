@@ -2,15 +2,16 @@ package no.jlwcrews.dmcv2.views.ui
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_new_game_setup_character.*
 import no.jlwcrews.dmcv2.R
 import no.jlwcrews.dmcv2.viewmodels.CharacterViewModel
-import no.jlwcrews.dmcv2.viewmodels.ScenarioViewModel
 import no.jlwcrews.dmcv2.views.adapters.CharacterListAdapter
-import no.jlwcrews.dmcv2.views.adapters.ScenarioListAdapter
+import java.io.Serializable
 
 class NewGameSetupCharacterActivity : AppCompatActivity() {
 
@@ -30,5 +31,12 @@ class NewGameSetupCharacterActivity : AppCompatActivity() {
         characterViewModel.characters.observe(this, Observer { characters ->
             characters?.let { adapter.setCharacters(it) }
         })
+
+        characterNextButton.setOnClickListener {
+            val monsterSelectIntent: Intent = Intent(this, NewGameSetupMonsterActivity::class.java)
+            monsterSelectIntent.putExtra("expansionList", expansionList as Serializable)
+            startActivity(monsterSelectIntent)
+        }
+
     }
 }

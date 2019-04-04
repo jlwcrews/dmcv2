@@ -9,12 +9,10 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".views.ui.NewGameSetupScenarioActivity">
-        </activity>
-        <activity android:name=".views.ui.NewGameSetupExpansionActivity">
-        </activity>
-        <activity android:name=".views.ui.NewGameSetupCharacterActivity">
-        </activity>
+        <activity android:name=".views.ui.NewGameSetupScenarioActivity"/>
+        <activity android:name=".views.ui.NewGameSetupExpansionActivity"/>
+        <activity android:name=".views.ui.NewGameSetupCharacterActivity"/>
+        <activity android:name=".views.ui.NewGameSetupMonsterActivity"/>
         <activity
                 android:name=".views.ui.MainActivity"
                 android:label="@string/app_name"

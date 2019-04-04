@@ -13,6 +13,10 @@ class MonsterRepo(private val monsterDao: MonsterDao) {
 
     val allMonsters: LiveData<List<Monster>> = monsterDao.getAllMonsters()
 
+
+    fun selectedMonsters(expansionId: List<Int>): LiveData<List<Monster>>{
+        return monsterDao.getMonstersByExpansion(expansionId)
+    }
     @WorkerThread
     suspend fun insert(monster: Monster) {
         monsterDao.insert(monster)

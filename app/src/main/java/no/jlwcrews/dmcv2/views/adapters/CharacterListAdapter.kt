@@ -45,8 +45,6 @@ class CharacterListAdapter internal constructor(
                 characterList.set(current.characterId, false)
                 count--
             }
-            println("Count is $count")
-            characterList.map { println("${it.key} ${it.value}") }
         }
 
     }
