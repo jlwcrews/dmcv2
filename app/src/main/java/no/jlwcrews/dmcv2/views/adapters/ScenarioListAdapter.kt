@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import kotlinx.android.synthetic.main.recyclerview_scenario.view.*
 import no.jlwcrews.dmc.db.entities.Scenario
 import no.jlwcrews.dmcv2.R
 
@@ -13,6 +14,8 @@ class ScenarioListAdapter internal constructor(context: Context) : RecyclerView.
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var scenarios = emptyList<Scenario>()
+    var currentRadioButtonPosition: Int = 0
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScenarioViewHolder {
         val itemView = inflater.inflate(R.layout.recyclerview_scenario, parent, false)
@@ -22,10 +25,11 @@ class ScenarioListAdapter internal constructor(context: Context) : RecyclerView.
     override fun onBindViewHolder(holder: ScenarioViewHolder, position: Int) {
         val current = scenarios[position]
 
-        /*holder.itemView.checkBoxScenario.setOnClickListener{
-            selectedScenarios.set(current.scenarioId, holder.itemView.checkBoxScenario.isChecked)
-        }*/
-        holder.scenarioIdView.text = current.scenarioId.toString()
+        holder.itemView.scenarioRadioButton.setOnClickListener{
+            currentRadioButtonPosition = current.scenarioId
+            println("Current selected is: $currentRadioButtonPosition")
+        }
+
         holder.scenarioNameView.text = current.scenarioName
         holder.scenarioExpansionIdView.text = current.scenarioExpansionId.toString()
     }
@@ -42,7 +46,6 @@ class ScenarioListAdapter internal constructor(context: Context) : RecyclerView.
     override fun getItemCount() = scenarios.size
 
     inner class ScenarioViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val scenarioIdView: TextView = itemView.findViewById(R.id.scenarioIdView)
         val scenarioNameView: TextView = itemView.findViewById(R.id.scenarioNameView)
         val scenarioExpansionIdView: TextView = itemView.findViewById(R.id.scenarioExpansionIdView)
     }
