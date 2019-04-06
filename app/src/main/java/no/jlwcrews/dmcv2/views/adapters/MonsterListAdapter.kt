@@ -11,13 +11,14 @@ import kotlinx.android.synthetic.main.recyclerview_monster.view.*
 import no.jlwcrews.dmc.db.entities.Monster
 import no.jlwcrews.dmcv2.R
 import no.jlwcrews.dmcv2.db.NewGameContainer
+import no.jlwcrews.dmcv2.db.models.MonsterWithType
 
 class MonsterListAdapter internal constructor(
     private val context: Context
 ) : RecyclerView.Adapter<MonsterListAdapter.MonsterViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private var monsters = emptyList<Monster>()
+    private var monsters = emptyList<MonsterWithType>()
     private var count: Int = 0
     private val minimumMonsters: Int = 4
     private val maximumMonsters: Int = 6
@@ -30,7 +31,8 @@ class MonsterListAdapter internal constructor(
 
     override fun onBindViewHolder(holder: MonsterViewHolder, position: Int) {
         val current = monsters[position]
-        holder.monsterNameView.text = current.monsterName
+        holder.monsterNameView.text = current.monster.monsterName
+        holder.monsterTypeView.text = current.monsterType.monsterTypeName
 
         holder.itemView.checkBoxMonster.setOnClickListener{
             if (holder.itemView.checkBoxMonster.isChecked){
@@ -38,20 +40,21 @@ class MonsterListAdapter internal constructor(
                     holder.itemView.checkBoxMonster.isChecked = false
                     Toast.makeText(context, "Maximum of 6 monsters.", Toast.LENGTH_LONG).show()
                 } else{
-                    newGameContainer.monsters.set(current.monsterId, true)
+                    newGameContainer.monsters.set(current.monster.monsterId, true)
                     count++
                 }
             } else {
-                newGameContainer.monsters.set(current.monsterId, false)
+                newGameContainer.monsters.set(current.monster.monsterId, false)
                 count--
             }
             println("Count is $count")
+            println("${current.monster.monsterName} ${current.monsterType.monsterTypeName}")
             newGameContainer.monsters.map { println("${it.key} ${it.value}") }
         }
 
     }
 
-    internal fun setMonsters(monsters: List<Monster>) {
+    internal fun setMonsters(monsters: List<MonsterWithType>) {
         this.monsters = monsters
         notifyDataSetChanged()
     }
@@ -60,6 +63,7 @@ class MonsterListAdapter internal constructor(
 
     inner class MonsterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val monsterNameView: TextView = itemView.findViewById(R.id.monsterNameView)
+        val monsterTypeView: TextView = itemView.findViewById(R.id.monsterTypeView)
     }
 }
 

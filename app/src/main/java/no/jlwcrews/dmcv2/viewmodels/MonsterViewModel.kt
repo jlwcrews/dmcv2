@@ -11,7 +11,9 @@ import no.jlwcrews.dmc.db.entities.Monster
 import no.jlwcrews.dmc.db.entities.PlayerCharacter
 import no.jlwcrews.dmc.db.repo.CharacterRepo
 import no.jlwcrews.dmc.db.repo.MonsterRepo
+import no.jlwcrews.dmc.db.repo.MonsterWithTypeRepo
 import no.jlwcrews.dmcv2.db.DmcDatabase
+import no.jlwcrews.dmcv2.db.models.MonsterWithType
 
 import kotlin.coroutines.CoroutineContext
 
@@ -22,20 +24,16 @@ class MonsterViewModel(application: Application) : AndroidViewModel(application)
         get() = parentJob + Dispatchers.Main
     private val scope = CoroutineScope(coroutineContext)
 
-    private val repository: MonsterRepo
-    lateinit var monsters: LiveData<List<Monster>>
+    private val repository: MonsterWithTypeRepo
+    lateinit var monsters: LiveData<List<MonsterWithType>>
 
     init {
-        val monsterDao = DmcDatabase.getDatabase(application, scope).monsterDao()
-        repository = MonsterRepo(monsterDao)
-    }
-
-    fun insert(monster: Monster) = scope.launch(Dispatchers.IO) {
-        repository.insert(monster)
+        val monsterWithTypeDao = DmcDatabase.getDatabase(application, scope).monsterWithTypeDao()
+        repository = MonsterWithTypeRepo(monsterWithTypeDao)
     }
 
     fun initMonsters(expansions: List<Int>){
-        monsters = repository.selectedMonsters(expansions)
+        monsters = repository.selectedMonstersWithType(expansions)
     }
 
     override fun onCleared() {

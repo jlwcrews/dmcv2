@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_main.*
 import no.jlwcrews.dmcv2.R
 import no.jlwcrews.dmcv2.db.NewGameContainer
 import no.jlwcrews.dmcv2.viewmodels.MonsterViewModel
@@ -15,7 +14,6 @@ import no.jlwcrews.dmcv2.views.adapters.MonsterListAdapter
 class NewGameSetupMonsterActivity : AppCompatActivity() {
 
     private lateinit var monsterViewModel: MonsterViewModel
-    lateinit var expansionList: List<Int>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

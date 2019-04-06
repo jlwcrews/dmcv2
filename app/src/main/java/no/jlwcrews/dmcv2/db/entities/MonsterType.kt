@@ -5,6 +5,7 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 
 @Entity(tableName = "dmc_monster_types")
+
 data class MonsterType(
     @PrimaryKey
     @ColumnInfo(name = "monster_type_id")
