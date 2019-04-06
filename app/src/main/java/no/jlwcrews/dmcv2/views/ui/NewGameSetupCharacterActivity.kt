@@ -10,9 +10,9 @@ import android.support.v7.widget.RecyclerView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_new_game_setup_character.*
 import no.jlwcrews.dmcv2.R
+import no.jlwcrews.dmcv2.db.NewGameContainer
 import no.jlwcrews.dmcv2.viewmodels.CharacterViewModel
 import no.jlwcrews.dmcv2.views.adapters.CharacterListAdapter
-import java.io.Serializable
 
 class NewGameSetupCharacterActivity : AppCompatActivity() {
 
@@ -24,11 +24,11 @@ class NewGameSetupCharacterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_new_game_setup_character)
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerviewCharacter)
         val adapter = CharacterListAdapter(this)
-        expansionList = intent.getSerializableExtra("expansionList") as List<Int>
+        adapter.newGameContainer = intent.getSerializableExtra("newGame") as NewGameContainer
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
         characterViewModel = ViewModelProviders.of(this).get(CharacterViewModel::class.java)
-        characterViewModel.initCharacters(expansionList)
+        characterViewModel.initCharacters(adapter.newGameContainer.getAsList(adapter.newGameContainer.expansions))
         characterViewModel.characters.observe(this, Observer { characters ->
             characters?.let { adapter.setCharacters(it) }
         })
@@ -36,7 +36,7 @@ class NewGameSetupCharacterActivity : AppCompatActivity() {
         characterNextButton.setOnClickListener {
             if(adapter.count >= adapter.minimumCharacters){
                 val monsterSelectIntent: Intent = Intent(this, NewGameSetupMonsterActivity::class.java)
-                monsterSelectIntent.putExtra("expansionList", expansionList as Serializable)
+                monsterSelectIntent.putExtra("newGame", adapter.newGameContainer)
                 startActivity(monsterSelectIntent)
             } else {
                 Toast.makeText(this, "You must select at least four characters.", Toast.LENGTH_LONG).show()

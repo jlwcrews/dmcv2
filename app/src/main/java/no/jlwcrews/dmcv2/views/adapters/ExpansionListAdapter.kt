@@ -8,13 +8,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import kotlinx.android.synthetic.main.recyclerview_expansion.view.*
 import no.jlwcrews.dmcv2.R
+import no.jlwcrews.dmcv2.db.NewGameContainer
 import no.jlwcrews.dmcv2.db.entities.Expansion
 
 class ExpansionListAdapter internal constructor(context: Context) : RecyclerView.Adapter<ExpansionListAdapter.ExpansionViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var expansions = emptyList<Expansion>()
-    var selectedExpansions: MutableMap<Int, Boolean> = mutableMapOf()
+    val newGameContainer: NewGameContainer = NewGameContainer()
 
     init {
         setHasStableIds(true)
@@ -29,7 +30,7 @@ class ExpansionListAdapter internal constructor(context: Context) : RecyclerView
         val current = expansions[position]
 
         holder.itemView.checkBoxExpansion.setOnClickListener{
-            selectedExpansions.set(current.expansionId, holder.itemView.checkBoxExpansion.isChecked)
+            newGameContainer.expansions.set(current.expansionId, holder.itemView.checkBoxExpansion.isChecked)
         }
         holder.expansionNameView.text = current.expansionName
     }

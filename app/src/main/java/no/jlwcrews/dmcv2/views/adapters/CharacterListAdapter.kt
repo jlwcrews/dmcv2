@@ -10,6 +10,7 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.recyclerview_character.view.*
 import no.jlwcrews.dmc.db.entities.PlayerCharacter
 import no.jlwcrews.dmcv2.R
+import no.jlwcrews.dmcv2.db.NewGameContainer
 
 class CharacterListAdapter internal constructor(
     private val context: Context
@@ -20,7 +21,7 @@ class CharacterListAdapter internal constructor(
     var count: Int = 0
     val minimumCharacters: Int = 4
     private val maximumCharacters: Int = 6
-    private var characterList: MutableMap<Int, Boolean> = mutableMapOf()
+    lateinit var newGameContainer: NewGameContainer
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
         val itemView = inflater.inflate(R.layout.recyclerview_character, parent, false)
@@ -38,15 +39,14 @@ class CharacterListAdapter internal constructor(
                     holder.itemView.checkBoxCharacter.isChecked = false
                     Toast.makeText(context, "Maximum of 6 characters.", Toast.LENGTH_LONG).show()
                 } else{
-                    characterList.set(current.characterId, true)
+                    newGameContainer.characters.set(current.characterId, true)
                     count++
                 }
             } else {
-                characterList.set(current.characterId, false)
+                newGameContainer.characters.set(current.characterId, false)
                 count--
             }
         }
-
     }
 
     internal fun setCharacters(characters: List<PlayerCharacter>) {

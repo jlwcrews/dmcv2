@@ -10,6 +10,7 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.recyclerview_monster.view.*
 import no.jlwcrews.dmc.db.entities.Monster
 import no.jlwcrews.dmcv2.R
+import no.jlwcrews.dmcv2.db.NewGameContainer
 
 class MonsterListAdapter internal constructor(
     private val context: Context
@@ -20,7 +21,7 @@ class MonsterListAdapter internal constructor(
     private var count: Int = 0
     private val minimumMonsters: Int = 4
     private val maximumMonsters: Int = 6
-    private var monsterList: MutableMap<Int, Boolean> = mutableMapOf()
+    lateinit var newGameContainer: NewGameContainer
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MonsterViewHolder {
         val itemView = inflater.inflate(R.layout.recyclerview_monster, parent, false)
@@ -37,15 +38,15 @@ class MonsterListAdapter internal constructor(
                     holder.itemView.checkBoxMonster.isChecked = false
                     Toast.makeText(context, "Maximum of 6 monsters.", Toast.LENGTH_LONG).show()
                 } else{
-                    monsterList.set(current.monsterId, true)
+                    newGameContainer.monsters.set(current.monsterId, true)
                     count++
                 }
             } else {
-                monsterList.set(current.monsterId, false)
+                newGameContainer.monsters.set(current.monsterId, false)
                 count--
             }
             println("Count is $count")
-            monsterList.map { println("${it.key} ${it.value}") }
+            newGameContainer.monsters.map { println("${it.key} ${it.value}") }
         }
 
     }

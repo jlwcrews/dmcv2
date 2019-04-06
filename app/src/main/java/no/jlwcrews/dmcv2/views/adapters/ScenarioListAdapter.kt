@@ -9,11 +9,13 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.recyclerview_scenario.view.*
 import no.jlwcrews.dmc.db.entities.Scenario
 import no.jlwcrews.dmcv2.R
+import no.jlwcrews.dmcv2.db.NewGameContainer
 
 class ScenarioListAdapter internal constructor(context: Context) : RecyclerView.Adapter<ScenarioListAdapter.ScenarioViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var scenarios = emptyList<Scenario>()
+    lateinit var newGameContainer: NewGameContainer
     var currentRadioButtonPosition: Int = -1
 
 
@@ -56,6 +58,7 @@ class ScenarioListAdapter internal constructor(context: Context) : RecyclerView.
 
             itemView.scenarioRadioButton.setOnClickListener {
                 currentRadioButtonPosition = adapterPosition
+                newGameContainer.scenario = scenario.scenarioId
                 notifyDataSetChanged()
             }
         }

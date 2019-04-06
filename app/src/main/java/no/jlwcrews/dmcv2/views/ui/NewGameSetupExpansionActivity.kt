@@ -33,7 +33,7 @@ class NewGameSetupExpansionActivity : AppCompatActivity() {
 
         expansionNextButton.setOnClickListener {
             val scenarioSelectIntent: Intent = Intent(this, NewGameSetupScenarioActivity::class.java)
-            scenarioSelectIntent.putExtra("expansionList", adapter.selectedExpansions as Serializable)
+            scenarioSelectIntent.putExtra("newGame", adapter.newGameContainer)
             startActivity(scenarioSelectIntent)
         }
 
