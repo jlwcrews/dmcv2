@@ -5,7 +5,6 @@ import android.support.annotation.WorkerThread
 import no.jlwcrews.dmc.db.dao.MonsterDao
 import no.jlwcrews.dmc.db.entities.Monster
 
-
 class MonsterRepo(private val monsterDao: MonsterDao) {
 
     val allMonsters: LiveData<List<Monster>> = monsterDao.getAllMonsters()

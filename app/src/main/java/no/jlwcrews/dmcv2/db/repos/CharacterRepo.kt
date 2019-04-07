@@ -13,6 +13,10 @@ class CharacterRepo(private val characterDao: CharacterDao) {
         return characterDao.getCharactersByExpansion(expansionId)
     }
 
+    fun selectedCharactersById(characterId: List<Int>): LiveData<List<PlayerCharacter>>{
+        return characterDao.getCharactersById(characterId)
+    }
+
     @WorkerThread
     suspend fun insert(playerCharacter: PlayerCharacter) {
         characterDao.insert(playerCharacter)

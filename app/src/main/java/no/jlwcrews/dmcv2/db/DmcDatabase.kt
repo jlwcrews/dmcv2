@@ -12,6 +12,7 @@ import no.jlwcrews.dmc.db.dao.*
 import no.jlwcrews.dmc.db.entities.*
 import no.jlwcrews.dmcv2.db.entities.Expansion
 import no.jlwcrews.dmcv2.db.dao.ExpansionDao
+import no.jlwcrews.dmcv2.db.dao.MonsterActionWithActionDao
 import no.jlwcrews.dmcv2.db.dao.MonsterWithTypeDao
 
 @Database(entities = arrayOf(
@@ -26,7 +27,7 @@ import no.jlwcrews.dmcv2.db.dao.MonsterWithTypeDao
     ScenarioCard::class,
     ScenarioTile::class,
     Tile::class
-    ), version = 6)
+    ), version = 7)
 public abstract class DmcDatabase : RoomDatabase() {
 
     abstract fun actionDao(): ActionDao
@@ -41,6 +42,7 @@ public abstract class DmcDatabase : RoomDatabase() {
     abstract fun scenarioTileDao(): ScenarioTileDao
     abstract fun tileDao(): TileDao
     abstract fun monsterWithTypeDao(): MonsterWithTypeDao
+    abstract fun monsterActionsWithActionDao(): MonsterActionWithActionDao
 
     companion object {
         @Volatile

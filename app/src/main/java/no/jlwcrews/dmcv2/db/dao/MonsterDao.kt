@@ -15,6 +15,9 @@ interface MonsterDao{
     @Query("select * from dmc_monsters where monster_expansion_id IN (:expansionId)")
     fun getMonstersByExpansion(expansionId: List<Int>): LiveData<List<Monster>>
 
+    @Query("select * from dmc_monsters where monster_id IN (:monsterId)")
+    fun getMonstersById(monsterId: List<Int>): LiveData<List<Monster>>
+
     @Query("select * from dmc_monsters where monster_id = :monsterId")
     fun getMonster(monsterId: Int): Monster
 

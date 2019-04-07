@@ -13,7 +13,10 @@ interface ScenarioDao{
     fun deleteAll()
 
     @Query("select * from dmc_scenarios where scenario_expansion_id IN (:expansionId)")
-    fun getScenarios(expansionId: List<Int>): LiveData<List<Scenario>>
+    fun getScenariosByExpansion(expansionId: List<Int>): LiveData<List<Scenario>>
+
+    @Query("select * from dmc_scenarios where scenario_id IN (:scenarioId)")
+    fun getScenariosById(scenarioId: List<Int>): LiveData<List<Scenario>>
 
     @Insert
     fun insert(vararg scenario: Scenario)

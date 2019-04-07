@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.recyclerview_monster.view.*
-import no.jlwcrews.dmc.db.entities.Monster
 import no.jlwcrews.dmcv2.R
 import no.jlwcrews.dmcv2.db.NewGameContainer
 import no.jlwcrews.dmcv2.db.models.MonsterWithType
@@ -19,9 +18,8 @@ class MonsterListAdapter internal constructor(
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var monsters = emptyList<MonsterWithType>()
-    private var count: Int = 0
-    private val minimumMonsters: Int = 4
-    private val maximumMonsters: Int = 6
+    var count: Int = 0
+    val maximumMonsters: Int = 6
     lateinit var newGameContainer: NewGameContainer
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MonsterViewHolder {
@@ -47,11 +45,7 @@ class MonsterListAdapter internal constructor(
                 newGameContainer.monsters.set(current.monster.monsterId, false)
                 count--
             }
-            println("Count is $count")
-            println("${current.monster.monsterName} ${current.monsterType.monsterTypeName}")
-            newGameContainer.monsters.map { println("${it.key} ${it.value}") }
         }
-
     }
 
     internal fun setMonsters(monsters: List<MonsterWithType>) {

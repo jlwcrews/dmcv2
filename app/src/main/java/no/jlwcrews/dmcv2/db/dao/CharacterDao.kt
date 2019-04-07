@@ -16,6 +16,9 @@ interface CharacterDao{
     @Query("select * from dmc_characters where character_expansion_id IN (:expansionId)")
     fun getCharactersByExpansion(expansionId: List<Int>): LiveData<List<PlayerCharacter>>
 
+    @Query("select * from dmc_characters where character_id IN (:characterId)")
+    fun getCharactersById(characterId: List<Int>): LiveData<List<PlayerCharacter>>
+
     @Query("select * from dmc_characters where character_id = :characterId")
     fun getCharacter(characterId: Int): PlayerCharacter
 

@@ -2,10 +2,13 @@ package no.jlwcrews.dmcv2.views.ui
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_new_game_setup_monster.*
 import no.jlwcrews.dmcv2.R
 import no.jlwcrews.dmcv2.db.NewGameContainer
 import no.jlwcrews.dmcv2.viewmodels.MonsterViewModel
@@ -28,5 +31,15 @@ class NewGameSetupMonsterActivity : AppCompatActivity() {
         monsterViewModel.monsters.observe(this, Observer { monsters ->
             monsters?.let { adapter.setMonsters(it) }
         })
+
+        monsterNextButton.setOnClickListener {
+            if(adapter.count == adapter.maximumMonsters){
+                val summaryIntent: Intent = Intent(this, NewGameSetupSummaryActivity::class.java)
+                summaryIntent.putExtra("newGame", adapter.newGameContainer)
+                startActivity(summaryIntent)
+            } else {
+                Toast.makeText(this, "You must select six monsters.", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 }
