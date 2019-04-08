@@ -13,4 +13,8 @@ class MonsterWithTypeRepo(private val monsterWithTypeDao: MonsterWithTypeDao) {
         return monsterWithTypeDao.getMonstersWithTypesByExpansion(expansionId)
     }
 
+    fun selectedMonstersWithTypeById(monsterId: List<Int>): LiveData<List<MonsterWithType>>{
+        return monsterWithTypeDao.getMonstersWithTypesById(monsterId)
+    }
+
 }

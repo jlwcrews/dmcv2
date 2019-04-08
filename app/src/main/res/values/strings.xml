@@ -37,5 +37,7 @@
     <string name="title_expansion_detail">Expansion Detail</string>
 
     <string name="scenarioLabel">Scenario:</string>
+    <string name="characterLabel">Characters</string>
+    <string name="monsterLabel">Monsters</string>
     <string name="summaryText">You are now ready to start the game!  Below are your selections, if they are good, then click next, otherwise you can go back and change them.</string>
 </resources>

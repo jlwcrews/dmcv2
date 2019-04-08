@@ -48,8 +48,8 @@ class SummaryViewModel(application: Application) : AndroidViewModel(application)
     }
 
     fun initViewModel(newGameContainer: NewGameContainer){
-        characters = repositoryCharacter.selectedCharacters(newGameContainer.getAsList(newGameContainer.expansions))
-        monsters = repositoryMonsters.selectedMonstersWithType(newGameContainer.getAsList(newGameContainer.expansions))
+        characters = repositoryCharacter.selectedCharactersById(newGameContainer.getAsList(newGameContainer.characters))
+        monsters = repositoryMonsters.selectedMonstersWithTypeById(newGameContainer.getAsList(newGameContainer.monsters))
         monsterActions = repositoryMonsterActions.getMonsterActionsWithActionByMonsterId(newGameContainer.getAsList(newGameContainer.monsters))
         scenario = repositoryScenario.selectedScenario(newGameContainer.scenario)
     }

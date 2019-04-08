@@ -10,41 +10,54 @@
     <TextView
             android:layout_width="309dp"
             android:layout_height="110dp"
-            android:id="@+id/summaryText" android:layout_marginTop="40dp"
-            android:layout_marginBottom="40dp" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/scenarioLabel" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:text="@string/summaryText"
-            app:layout_constraintVertical_bias="0.419"/>
+            android:id="@+id/summaryText"
+            android:text="@string/summaryText"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"/>
+
     <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="20dp"
             android:id="@+id/scenarioTextView"
-            app:layout_constraintBaseline_toBaselineOf="@+id/scenarioLabel"
-            app:layout_constraintStart_toStartOf="@+id/characterRecyclerView"
-            android:layout_marginStart="77dp"/>
+            tools:layout_editor_absoluteY="193dp" tools:layout_editor_absoluteX="122dp"/>
+
     <android.support.v7.widget.RecyclerView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="250dp"
+            android:layout_height="180dp"
             android:id="@+id/characterRecyclerView"
-            android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@+id/scenarioLabel"
-            android:layout_marginBottom="11dp"
-            app:layout_constraintEnd_toEndOf="@+id/monsterRecyclerView"
-            app:layout_constraintBottom_toTopOf="@+id/monsterRecyclerView"
-            app:layout_constraintStart_toStartOf="@+id/monsterRecyclerView"
-            tools:listitem="@layout/recyclerview_character"/>
+            tools:listitem="@layout/recyclerview_character_summary"
+            tools:layout_editor_absoluteY="248dp"
+            tools:layout_editor_absoluteX="122dp"/>
+
     <android.support.v7.widget.RecyclerView
-            android:layout_width="249dp"
-            android:layout_height="195dp"
-            android:id="@+id/monsterRecyclerView" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="138dp"
-            tools:listitem="@layout/recyclerview_monster"/>
+            android:layout_width="250dp"
+            android:layout_height="180dp"
+            android:id="@+id/monsterRecyclerView"
+            tools:listitem="@layout/recyclerview_monster_summary"
+            tools:layout_editor_absoluteY="467dp" tools:layout_editor_absoluteX="122dp"/>
+
     <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="75dp"
+            android:layout_height="20dp"
             android:id="@+id/scenarioLabel"
-            app:layout_constraintEnd_toStartOf="@+id/scenarioTextView" android:layout_marginEnd="16dp"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="159dp"
-            android:text="@string/scenarioLabel"/>
+            android:text="@string/scenarioLabel"
+            tools:layout_editor_absoluteX="26dp"
+            tools:layout_editor_absoluteY="193dp"/>
+
+    <TextView
+            android:text="@string/characterLabel"
+            android:layout_width="75dp"
+            android:layout_height="20dp"
+            android:id="@+id/labelCharacters"
+            tools:layout_editor_absoluteY="248dp" tools:layout_editor_absoluteX="26dp"/>
+
+    <TextView
+            android:text="@string/monsterLabel"
+            android:layout_width="75dp"
+            android:layout_height="20dp"
+            android:id="@+id/labelMonsters"
+            tools:layout_editor_absoluteY="467dp" tools:layout_editor_absoluteX="26dp"/>
+
 </android.support.constraint.ConstraintLayout>

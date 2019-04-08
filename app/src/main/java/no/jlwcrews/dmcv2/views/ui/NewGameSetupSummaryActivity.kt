@@ -9,9 +9,8 @@ import android.support.v7.widget.RecyclerView
 import no.jlwcrews.dmcv2.R
 import no.jlwcrews.dmcv2.db.models.NewGameContainer
 import no.jlwcrews.dmcv2.viewmodels.SummaryViewModel
-import no.jlwcrews.dmcv2.views.adapters.CharacterListAdapter
-import no.jlwcrews.dmcv2.views.adapters.MonsterListAdapter
-import no.jlwcrews.dmcv2.views.adapters.ScenarioListAdapter
+import no.jlwcrews.dmcv2.views.adapters.CharacterSummaryAdapter
+import no.jlwcrews.dmcv2.views.adapters.MonsterSummaryAdapter
 
 
 class NewGameSetupSummaryActivity : AppCompatActivity() {
@@ -31,8 +30,8 @@ class NewGameSetupSummaryActivity : AppCompatActivity() {
         val monsterRecyclerView = findViewById<RecyclerView>(R.id.monsterRecyclerView)
         val characterRecyclerView = findViewById<RecyclerView>(R.id.characterRecyclerView)
 
-        val monsterAdapter = MonsterListAdapter(this)
-        val characterAdapter = CharacterListAdapter(this)
+        val monsterAdapter = MonsterSummaryAdapter(this)
+        val characterAdapter = CharacterSummaryAdapter(this)
 
         summaryViewModel.initViewModel(newGameContainer)
 

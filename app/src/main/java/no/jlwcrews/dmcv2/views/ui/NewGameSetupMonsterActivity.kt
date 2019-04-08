@@ -23,9 +23,13 @@ class NewGameSetupMonsterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_new_game_setup_monster)
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerviewMonster)
         val adapter = MonsterListAdapter(this)
+
         recyclerView.adapter = adapter
+
         adapter.newGameContainer = intent.getSerializableExtra("newGame") as NewGameContainer
+
         recyclerView.layoutManager = LinearLayoutManager(this)
+
         monsterViewModel = ViewModelProviders.of(this).get(MonsterViewModel::class.java)
         monsterViewModel.initMonsters(adapter.newGameContainer.getAsList(adapter.newGameContainer.expansions))
         monsterViewModel.monsters.observe(this, Observer { monsters ->
