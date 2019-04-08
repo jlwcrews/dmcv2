@@ -15,8 +15,8 @@ interface ScenarioDao{
     @Query("select * from dmc_scenarios where scenario_expansion_id IN (:expansionId)")
     fun getScenariosByExpansion(expansionId: List<Int>): LiveData<List<Scenario>>
 
-    @Query("select * from dmc_scenarios where scenario_id IN (:scenarioId)")
-    fun getScenariosById(scenarioId: List<Int>): LiveData<List<Scenario>>
+    @Query("select * from dmc_scenarios where scenario_id = :scenarioId")
+    fun getScenarioById(scenarioId: Int): LiveData<Scenario>
 
     @Insert
     fun insert(vararg scenario: Scenario)

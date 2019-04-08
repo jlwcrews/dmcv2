@@ -9,7 +9,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_new_game_setup_scenario.*
 import no.jlwcrews.dmcv2.R
-import no.jlwcrews.dmcv2.db.NewGameContainer
+import no.jlwcrews.dmcv2.db.models.NewGameContainer
 import no.jlwcrews.dmcv2.viewmodels.ScenarioViewModel
 import no.jlwcrews.dmcv2.views.adapters.ScenarioListAdapter
 

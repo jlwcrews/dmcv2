@@ -10,6 +10,10 @@ class ScenarioRepo(private val scenarioDao: ScenarioDao) {
 
     val allScenarios: LiveData<List<Scenario>> = scenarioDao.getAllScenarios()
 
+    fun selectedScenario(scenarioId: Int): LiveData<Scenario>{
+        return scenarioDao.getScenarioById(scenarioId)
+    }
+
     fun selectedScenarios(expansionId: List<Int>): LiveData<List<Scenario>>{
         return scenarioDao.getScenariosByExpansion(expansionId)
     }

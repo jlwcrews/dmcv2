@@ -9,7 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.recyclerview_monster.view.*
 import no.jlwcrews.dmcv2.R
-import no.jlwcrews.dmcv2.db.NewGameContainer
+import no.jlwcrews.dmcv2.db.models.NewGameContainer
 import no.jlwcrews.dmcv2.db.models.MonsterWithType
 
 class MonsterListAdapter internal constructor(

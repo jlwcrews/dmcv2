@@ -1,11 +1,8 @@
 package no.jlwcrews.dmcv2.viewmodels
 
-import android.app.Activity
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.Transformations
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -13,7 +10,6 @@ import kotlinx.coroutines.launch
 import no.jlwcrews.dmc.db.entities.Scenario
 import no.jlwcrews.dmc.db.repo.ScenarioRepo
 import no.jlwcrews.dmcv2.db.DmcDatabase
-import no.jlwcrews.dmcv2.views.ui.NewGameSetupScenarioActivity
 
 import kotlin.coroutines.CoroutineContext
 

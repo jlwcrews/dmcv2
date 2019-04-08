@@ -9,7 +9,7 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.recyclerview_scenario.view.*
 import no.jlwcrews.dmc.db.entities.Scenario
 import no.jlwcrews.dmcv2.R
-import no.jlwcrews.dmcv2.db.NewGameContainer
+import no.jlwcrews.dmcv2.db.models.NewGameContainer
 
 class ScenarioListAdapter internal constructor(context: Context) : RecyclerView.Adapter<ScenarioListAdapter.ScenarioViewHolder>() {
 

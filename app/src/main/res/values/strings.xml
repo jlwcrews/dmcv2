@@ -36,6 +36,6 @@
     <string name="title_expansion_list">Expansions</string>
     <string name="title_expansion_detail">Expansion Detail</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="scenarioLabel">Scenario:</string>
+    <string name="summaryText">You are now ready to start the game!  Below are your selections, if they are good, then click next, otherwise you can go back and change them.</string>
 </resources>

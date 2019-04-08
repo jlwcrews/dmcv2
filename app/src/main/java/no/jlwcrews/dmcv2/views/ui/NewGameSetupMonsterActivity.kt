@@ -10,7 +10,7 @@ import android.support.v7.widget.RecyclerView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_new_game_setup_monster.*
 import no.jlwcrews.dmcv2.R
-import no.jlwcrews.dmcv2.db.NewGameContainer
+import no.jlwcrews.dmcv2.db.models.NewGameContainer
 import no.jlwcrews.dmcv2.viewmodels.MonsterViewModel
 import no.jlwcrews.dmcv2.views.adapters.MonsterListAdapter
 

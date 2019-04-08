@@ -21,7 +21,7 @@ class ExpansionViewModel(application: Application) : AndroidViewModel(applicatio
     private val scope = CoroutineScope(coroutineContext)
 
     private val repository: ExpansionRepo
-    lateinit var allExpansions: LiveData<List<Expansion>>
+    var allExpansions: LiveData<List<Expansion>>
 
     init {
         val expansionDao = DmcDatabase.getDatabase(application, scope).expansionDao()

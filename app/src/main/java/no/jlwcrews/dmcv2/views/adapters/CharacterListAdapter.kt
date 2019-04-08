@@ -10,7 +10,7 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.recyclerview_character.view.*
 import no.jlwcrews.dmc.db.entities.PlayerCharacter
 import no.jlwcrews.dmcv2.R
-import no.jlwcrews.dmcv2.db.NewGameContainer
+import no.jlwcrews.dmcv2.db.models.NewGameContainer
 
 class CharacterListAdapter internal constructor(
     private val context: Context

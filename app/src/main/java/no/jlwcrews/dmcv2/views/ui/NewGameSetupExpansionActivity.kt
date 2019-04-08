@@ -11,7 +11,6 @@ import kotlinx.android.synthetic.main.activity_new_game_setup_expansion.*
 import no.jlwcrews.dmcv2.R
 import no.jlwcrews.dmcv2.viewmodels.ExpansionViewModel
 import no.jlwcrews.dmcv2.views.adapters.ExpansionListAdapter
-import java.io.Serializable
 
 class NewGameSetupExpansionActivity : AppCompatActivity() {
 
