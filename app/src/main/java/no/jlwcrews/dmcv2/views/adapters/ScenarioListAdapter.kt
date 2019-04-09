@@ -51,7 +51,7 @@ class ScenarioListAdapter internal constructor(context: Context) : RecyclerView.
             itemView.scenarioRadioButton.tag = scenario.scenarioId
 
             when {
-                selectedPosition == -1 && position == 0 -> itemView.scenarioRadioButton.isChecked = true
+                //selectedPosition == -1 && position == 0 -> itemView.scenarioRadioButton.isChecked = true
                 selectedPosition == position -> itemView.scenarioRadioButton.isChecked = true
                 else -> itemView.scenarioRadioButton.isChecked = false
             }

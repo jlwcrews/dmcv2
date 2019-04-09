@@ -42,7 +42,9 @@ class NewGameSetupSummaryActivity : AppCompatActivity() {
         characterRecyclerView.layoutManager = LinearLayoutManager(this)
         monsterRecyclerView.layoutManager = LinearLayoutManager(this)
 
-        scenarioTextView.text = summaryViewModel.scenario.value?.scenarioName
+        summaryViewModel.scenario.observe(this, Observer { scenario ->
+            scenario?.let {scenarioTextView.text = (it.scenarioName)}
+        })
 
         summaryViewModel.characters.observe(this, Observer { characters ->
             characters?.let { characterAdapter.setCharacters(it) }
