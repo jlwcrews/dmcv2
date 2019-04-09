@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_new_game_setup_summary.*
 import no.jlwcrews.dmcv2.R
 import no.jlwcrews.dmcv2.db.models.NewGameContainer
 import no.jlwcrews.dmcv2.viewmodels.SummaryViewModel
@@ -41,6 +42,7 @@ class NewGameSetupSummaryActivity : AppCompatActivity() {
         characterRecyclerView.layoutManager = LinearLayoutManager(this)
         monsterRecyclerView.layoutManager = LinearLayoutManager(this)
 
+        scenarioTextView.text = summaryViewModel.scenario.value?.scenarioName
 
         summaryViewModel.characters.observe(this, Observer { characters ->
             characters?.let { characterAdapter.setCharacters(it) }

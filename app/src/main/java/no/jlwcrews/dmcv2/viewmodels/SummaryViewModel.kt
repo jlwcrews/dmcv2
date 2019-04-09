@@ -3,9 +3,8 @@ package no.jlwcrews.dmcv2.viewmodels
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.LiveData
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
+import android.databinding.Bindable
+import kotlinx.coroutines.*
 import no.jlwcrews.dmc.db.entities.PlayerCharacter
 import no.jlwcrews.dmc.db.entities.Scenario
 import no.jlwcrews.dmc.db.repo.CharacterRepo
@@ -51,7 +50,9 @@ class SummaryViewModel(application: Application) : AndroidViewModel(application)
         characters = repositoryCharacter.selectedCharactersById(newGameContainer.getAsList(newGameContainer.characters))
         monsters = repositoryMonsters.selectedMonstersWithTypeById(newGameContainer.getAsList(newGameContainer.monsters))
         monsterActions = repositoryMonsterActions.getMonsterActionsWithActionByMonsterId(newGameContainer.getAsList(newGameContainer.monsters))
+
         scenario = repositoryScenario.selectedScenario(newGameContainer.scenario)
+
     }
 
     override fun onCleared() {

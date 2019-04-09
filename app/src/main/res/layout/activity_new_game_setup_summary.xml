@@ -8,56 +8,74 @@
         tools:context=".views.ui.NewGameSetupSummaryActivity">
 
     <TextView
-            android:layout_width="309dp"
-            android:layout_height="110dp"
+            android:layout_width="379dp"
+            android:layout_height="wrap_content"
             android:id="@+id/summaryText"
             android:text="@string/summaryText"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp"/>
 
     <TextView
-            android:layout_width="250dp"
-            android:layout_height="20dp"
-            android:id="@+id/scenarioTextView"
-            tools:layout_editor_absoluteY="193dp" tools:layout_editor_absoluteX="122dp"/>
-
-    <android.support.v7.widget.RecyclerView
-            android:layout_width="250dp"
-            android:layout_height="180dp"
-            android:id="@+id/characterRecyclerView"
-            tools:listitem="@layout/recyclerview_character_summary"
-            tools:layout_editor_absoluteY="248dp"
-            tools:layout_editor_absoluteX="122dp"/>
-
-    <android.support.v7.widget.RecyclerView
-            android:layout_width="250dp"
-            android:layout_height="180dp"
-            android:id="@+id/monsterRecyclerView"
-            tools:listitem="@layout/recyclerview_monster_summary"
-            tools:layout_editor_absoluteY="467dp" tools:layout_editor_absoluteX="122dp"/>
-
-    <TextView
-            android:layout_width="75dp"
+            android:layout_width="100dp"
             android:layout_height="20dp"
             android:id="@+id/scenarioLabel"
             android:text="@string/scenarioLabel"
-            tools:layout_editor_absoluteX="26dp"
-            tools:layout_editor_absoluteY="193dp"/>
+            android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/summaryText"
+            android:layout_marginBottom="16dp" app:layout_constraintBottom_toTopOf="@+id/labelCharacters"
+            app:layout_constraintVertical_bias="0.25" android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+
+            android:layout_width="138dp"
+            android:layout_height="20dp"
+            android:id="@+id/scenarioTextView"
+            app:layout_constraintTop_toTopOf="@+id/scenarioLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintStart_toEndOf="@+id/scenarioLabel"
+            android:layout_marginStart="32dp"
+            app:layout_constraintHorizontal_bias="0.0"/>
+
+    <android.support.v7.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:id="@+id/characterRecyclerView"
+            tools:listitem="@layout/recyclerview_character_summary"
+            app:layout_constraintTop_toTopOf="@+id/labelCharacters"
+            app:layout_constraintStart_toEndOf="@+id/labelCharacters" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp" android:layout_marginStart="32dp"
+            app:layout_constraintHorizontal_bias="0.0"/>
+
+    <android.support.v7.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="181dp"
+            android:id="@+id/monsterRecyclerView"
+            tools:listitem="@layout/recyclerview_monster_summary"
+            app:layout_constraintTop_toTopOf="@+id/labelMonsters"
+            app:layout_constraintStart_toEndOf="@+id/labelMonsters" android:layout_marginStart="32dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
+            app:layout_constraintHorizontal_bias="0.0"/>
 
     <TextView
             android:text="@string/characterLabel"
-            android:layout_width="75dp"
+            android:layout_width="100dp"
             android:layout_height="20dp"
             android:id="@+id/labelCharacters"
-            tools:layout_editor_absoluteY="248dp" tools:layout_editor_absoluteX="26dp"/>
+            android:layout_marginBottom="16dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/summaryText"
+            app:layout_constraintVertical_bias="0.25" android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
             android:text="@string/monsterLabel"
-            android:layout_width="75dp"
+            android:layout_width="100dp"
             android:layout_height="20dp"
             android:id="@+id/labelMonsters"
-            tools:layout_editor_absoluteY="467dp" tools:layout_editor_absoluteX="26dp"/>
+            android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/labelCharacters"
+            android:layout_marginBottom="16dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"/>
 
 </android.support.constraint.ConstraintLayout>
