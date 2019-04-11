@@ -1,6 +1,6 @@
 package no.jlwcrews.dmcv2.db.repos
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import no.jlwcrews.dmcv2.db.dao.MonsterActionWithActionDao
 import no.jlwcrews.dmcv2.db.models.MonsterActionWithAction
 

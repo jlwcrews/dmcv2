@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/navigation_graph"
+            app:startDestination="@id/mainFragment">
+
+    <fragment android:id="@+id/mainFragment"
+              android:name="no.jlwcrews.dmcv2.views.ui.fragments.MainFragment"
+              android:label="fragment_main"
+              tools:layout="@layout/fragment_main">
+        <action android:id="@+id/to_expansion_selection"
+                app:destination="@id/expansionSelectionFragment"/>
+        <action android:id="@+id/to_settings"
+                app:destination="@id/settingsFragment"/>
+    </fragment>
+    <fragment android:id="@+id/expansionSelectionFragment"
+              android:name="no.jlwcrews.dmcv2.views.ui.fragments.ExpansionSelectionFragment"
+              android:label="fragment_expansion_selection"
+              tools:layout="@layout/fragment_expansion_selection">
+        <action android:id="@+id/to_scenario_selection"
+                app:destination="@id/scenarioSelectionFragment"/>
+    </fragment>
+    <fragment android:id="@+id/scenarioSelectionFragment" android:name="no.jlwcrews.dmcv2.views.ui.fragments.ScenarioSelectionFragment"
+              android:label="fragment_scenario_selection" tools:layout="@layout/fragment_scenario_selection">
+        <action android:id="@+id/to_character_selection"
+                app:destination="@id/characterSelectionFragment"/>
+    </fragment>
+    <fragment android:id="@+id/characterSelectionFragment" android:name="no.jlwcrews.dmcv2.views.ui.fragments.CharacterSelectionFragment"
+              android:label="fragment_character_selection" tools:layout="@layout/fragment_character_selection">
+        <action android:id="@+id/to_monster_selection"
+                app:destination="@id/monsterSelectionFragment"/>
+    </fragment>
+    <fragment android:id="@+id/monsterSelectionFragment" android:name="no.jlwcrews.dmcv2.views.ui.fragments.MonsterSelectionFragment"
+              android:label="fragment_monster_selection" tools:layout="@layout/fragment_monster_selection">
+        <action android:id="@+id/to_main_fragment" app:destination="@id/mainFragment"/>
+    </fragment>
+    <fragment android:id="@+id/settingsFragment" android:name="no.jlwcrews.dmcv2.views.ui.fragments.SettingsFragment"
+              android:label="fragment_settings" tools:layout="@layout/fragment_settings"/>
+</navigation>

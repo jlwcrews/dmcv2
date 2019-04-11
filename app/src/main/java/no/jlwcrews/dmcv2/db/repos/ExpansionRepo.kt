@@ -1,7 +1,7 @@
 package no.jlwcrews.dmcv2.db.repos
 
-import android.arch.lifecycle.LiveData
-import android.support.annotation.WorkerThread
+import androidx.lifecycle.LiveData
+import androidx.annotation.WorkerThread
 import no.jlwcrews.dmcv2.db.dao.ExpansionDao
 import no.jlwcrews.dmcv2.db.entities.Expansion
 

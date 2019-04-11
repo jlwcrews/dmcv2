@@ -1,7 +1,7 @@
 package no.jlwcrews.dmc.db.dao
 
-import android.arch.lifecycle.LiveData
-import android.arch.persistence.room.*
+import androidx.lifecycle.LiveData
+import androidx.room.*
 import no.jlwcrews.dmc.db.entities.Scenario
 
 @Dao

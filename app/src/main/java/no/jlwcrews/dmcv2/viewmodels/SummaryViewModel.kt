@@ -1,11 +1,11 @@
 package no.jlwcrews.dmcv2.viewmodels
 
 import android.app.Application
-import android.arch.lifecycle.AndroidViewModel
-import android.arch.lifecycle.LiveData
-import android.databinding.Bindable
-import android.databinding.BindingAdapter
-import android.databinding.BindingMethod
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.databinding.Bindable
+import androidx.databinding.BindingAdapter
+import androidx.databinding.BindingMethod
 import android.view.View
 import kotlinx.coroutines.*
 import no.jlwcrews.dmc.db.entities.PlayerCharacter

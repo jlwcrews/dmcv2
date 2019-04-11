@@ -1,7 +1,7 @@
 package no.jlwcrews.dmc.db.repo
 
-import android.arch.lifecycle.LiveData
-import android.support.annotation.WorkerThread
+import androidx.lifecycle.LiveData
+import androidx.annotation.WorkerThread
 import no.jlwcrews.dmc.db.dao.TileDao
 import no.jlwcrews.dmc.db.entities.Tile
 

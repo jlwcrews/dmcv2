@@ -2,7 +2,7 @@ package no.jlwcrews.dmcv2.views.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import kotlinx.android.synthetic.main.activity_main.*
 import no.jlwcrews.dmcv2.R
 
@@ -12,16 +12,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        newGameBtn.setOnClickListener {
+/*        newGameBtn.setOnClickListener {
             val newGameIntent: Intent = Intent(this, NewGameSetupExpansionActivity::class.java)
             startActivity(newGameIntent)
-        }
-
-        /*settingsBtn.setOnClickListener {
-            val settingsIntent = Intent(this, SettingsActivity::class.java)
-            startActivity(settingsIntent)
         }*/
 
-
+        newGameBtn.setOnClickListener {
+            val newGameIntent: Intent = Intent(this, MainActivity2::class.java)
+            startActivity(newGameIntent)
+        }
     }
 }

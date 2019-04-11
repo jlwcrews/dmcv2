@@ -11,8 +11,9 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".views.ui.NewGameSetupSummaryActivity">
+        <activity android:name=".views.ui.MainActivity2">
         </activity>
+        <activity android:name=".views.ui.NewGameSetupSummaryActivity"/>
         <activity android:name=".views.ui.NewGameSetupScenarioActivity"/>
         <activity android:name=".views.ui.NewGameSetupExpansionActivity"/>
         <activity android:name=".views.ui.NewGameSetupCharacterActivity"/>

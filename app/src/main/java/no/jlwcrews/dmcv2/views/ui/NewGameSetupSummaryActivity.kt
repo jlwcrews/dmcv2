@@ -1,11 +1,11 @@
 package no.jlwcrews.dmcv2.views.ui
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
-import android.support.v7.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_new_game_setup_summary.*
 import no.jlwcrews.dmcv2.R
 import no.jlwcrews.dmcv2.db.models.NewGameContainer
