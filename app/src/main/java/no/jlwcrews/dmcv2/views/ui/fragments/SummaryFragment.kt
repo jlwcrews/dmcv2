@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_new_game_setup_summary.*
+import kotlinx.android.synthetic.main.fragment_summary.*
 import no.jlwcrews.dmcv2.R
 import no.jlwcrews.dmcv2.db.models.NewGameContainer
 import no.jlwcrews.dmcv2.viewmodels.SummaryViewModel
@@ -41,13 +41,13 @@ class SummaryFragment : Fragment() {
         val monsterAdapter = MonsterSummaryAdapter(this.context!!)
         val characterAdapter = CharacterSummaryAdapter(this.context!!)
 
-        summaryViewModel.initViewModel(newGameContainer)
-
         characterRecyclerView?.adapter = characterAdapter
         monsterRecyclerView?.adapter = monsterAdapter
 
         characterRecyclerView?.layoutManager = LinearLayoutManager(this.context!!)
         monsterRecyclerView?.layoutManager = LinearLayoutManager(this.context!!)
+
+        summaryViewModel.initViewModel(newGameContainer)
 
         summaryViewModel.scenario.observe(this, Observer { scenario ->
             scenario?.let {scenarioTextView.text = (it.scenarioName)}

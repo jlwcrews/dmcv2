@@ -13,13 +13,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_expansion_selection.*
 import no.jlwcrews.dmcv2.R
-import no.jlwcrews.dmcv2.viewmodels.ExpansionViewModel
+import no.jlwcrews.dmcv2.viewmodels.DmcViewModel
 import no.jlwcrews.dmcv2.views.adapters.ExpansionListAdapter
 
 
 class ExpansionSelectionFragment : Fragment() {
 
-    lateinit var expansionViewModel: ExpansionViewModel
+    lateinit var dmcViewModel: DmcViewModel
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
@@ -34,14 +35,15 @@ class ExpansionSelectionFragment : Fragment() {
         val adapter = ExpansionListAdapter(this.context!!)
         recyclerView?.adapter = adapter
         recyclerView?.layoutManager = LinearLayoutManager(this.context!!)
-        expansionViewModel = ViewModelProviders.of(this).get(ExpansionViewModel::class.java)
-
-        expansionViewModel.allExpansions.observe(this, Observer { expansions ->
+        activity?.let{
+            dmcViewModel = ViewModelProviders.of(this).get(DmcViewModel::class.java)
+        }
+        dmcViewModel.expansions.observe(this, Observer { expansions ->
             expansions?.let { adapter.setExpansions(it) }
         })
 
         expansionNextButton.setOnClickListener {
-            val newGameBundle: Bundle = Bundle()
+            val newGameBundle = Bundle()
             newGameBundle.putSerializable("newGame", adapter.newGameContainer)
             it.findNavController().navigate(R.id.scenarioSelectionFragment, newGameBundle)
         }

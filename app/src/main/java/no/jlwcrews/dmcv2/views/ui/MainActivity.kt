@@ -1,10 +1,10 @@
 package no.jlwcrews.dmcv2.views.ui
 
-import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity;
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.lifecycle.ViewModelProviders
 import no.jlwcrews.dmcv2.R
+import no.jlwcrews.dmcv2.viewmodels.DmcViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,14 +12,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-/*        newGameBtn.setOnClickListener {
-            val newGameIntent: Intent = Intent(this, NewGameSetupExpansionActivity::class.java)
-            startActivity(newGameIntent)
-        }*/
-
-        newGameBtn.setOnClickListener {
-            val newGameIntent: Intent = Intent(this, MainActivity2::class.java)
-            startActivity(newGameIntent)
-        }
+        val dmcViewModel = ViewModelProviders.of(this).get(DmcViewModel::class.java)
     }
 }

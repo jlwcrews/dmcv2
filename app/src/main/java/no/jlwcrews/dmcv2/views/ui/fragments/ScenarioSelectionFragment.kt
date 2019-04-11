@@ -14,13 +14,13 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_scenario_selection.*
 import no.jlwcrews.dmcv2.R
 import no.jlwcrews.dmcv2.db.models.NewGameContainer
-import no.jlwcrews.dmcv2.viewmodels.ScenarioViewModel
+import no.jlwcrews.dmcv2.viewmodels.DmcViewModel
 import no.jlwcrews.dmcv2.views.adapters.ScenarioListAdapter
 
 
 class ScenarioSelectionFragment : Fragment() {
 
-    lateinit var scenarioViewModel: ScenarioViewModel
+    lateinit var dmcViewModel: DmcViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
@@ -36,9 +36,11 @@ class ScenarioSelectionFragment : Fragment() {
         recyclerView?.adapter = adapter
         adapter.newGameContainer = arguments?.getSerializable("newGame") as NewGameContainer
         recyclerView?.layoutManager = LinearLayoutManager(this.context!!)
-        scenarioViewModel = ViewModelProviders.of(this).get(ScenarioViewModel::class.java)
-        scenarioViewModel.initScenarios(adapter.newGameContainer.getAsList(adapter.newGameContainer.expansions))
-        scenarioViewModel.scenarios.observe(this, Observer { scenarios ->
+        activity?.let{
+            dmcViewModel = ViewModelProviders.of(it).get(DmcViewModel::class.java)
+        }
+        dmcViewModel.initViewModel(adapter.newGameContainer)
+        dmcViewModel.scenarios.observe(this, Observer { scenarios ->
             scenarios?.let { adapter.setScenarios(it) }
         })
 
