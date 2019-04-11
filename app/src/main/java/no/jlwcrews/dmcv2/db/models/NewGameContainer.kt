@@ -2,7 +2,7 @@ package no.jlwcrews.dmcv2.db.models
 
 import java.io.Serializable
 
-class NewGameContainer(): Serializable {
+class NewGameContainer: Serializable {
 
     val expansions: MutableMap<Int, Boolean> = mutableMapOf()
     var scenario: Int = 0

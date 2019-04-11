@@ -5,10 +5,13 @@
              android:layout_height="match_parent"
              tools:context=".views.ui.fragments.ExpansionSelectionFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"/>
+    <include layout="@layout/content_main_new_game_setup_expansion"/>
+
+    <Button
+            android:id="@+id/expansionNextButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="@string/next" />
 
 </FrameLayout>
