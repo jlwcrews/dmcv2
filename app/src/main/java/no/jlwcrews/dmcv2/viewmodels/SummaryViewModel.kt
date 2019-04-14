@@ -10,7 +10,7 @@ import kotlinx.coroutines.Job
 import no.jlwcrews.dmc.db.entities.PlayerCharacter
 import no.jlwcrews.dmc.db.entities.Scenario
 import no.jlwcrews.dmc.db.repo.CharacterRepo
-import no.jlwcrews.dmc.db.repo.HistoryRepo
+import no.jlwcrews.dmcv2.db.repos.HistoryRepo
 import no.jlwcrews.dmc.db.repo.MonsterWithTypeRepo
 import no.jlwcrews.dmc.db.repo.ScenarioRepo
 import no.jlwcrews.dmcv2.db.DmcDatabase

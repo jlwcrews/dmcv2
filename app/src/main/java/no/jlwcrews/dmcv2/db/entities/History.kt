@@ -9,14 +9,14 @@ data class History(
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "history_id")
-    val historyId: Long,
+    var historyId: Long,
 
     @ColumnInfo(name="history_date")
     var historyDate: String,
 
     @ColumnInfo(name="history_location")
-    val historyLocation: String,
+    var historyLocation: String,
 
     @ColumnInfo(name="history_scenario_id")
-    val historyScenarioId: Int
+    var historyScenarioId: Int
 )
