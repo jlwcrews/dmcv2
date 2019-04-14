@@ -47,4 +47,12 @@
     <string name="historyDateText">Date</string>
     <string name="historyLocationText">Lat/Long</string>
     <string name="historyScenarioText">Scenario</string>
+    <string name="diceRollerButton">Dice Roller</string>
+    <string name="diceSelectText">Select how many dice to roll, and then shake the phone to roll.</string>
+    <string name="radioDice1">1 Die</string>
+    <string name="radioDice2">2 Dice</string>
+    <string name="radioDice3">3 Dice</string>
+    <string name="radioDice4">4 Dice</string>
+    <string name="radioDice5">5 Dice</string>
+    <string name="radioDice6">6 Dice</string>
 </resources>

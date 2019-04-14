@@ -12,6 +12,7 @@
         <action android:id="@+id/to_expansion_selection"
                 app:destination="@id/expansionSelectionFragment"/>
         <action android:id="@+id/to_history" app:destination="@id/historyFragment"/>
+        <action android:id="@+id/to_dice_roller" app:destination="@id/diceFragment"/>
     </fragment>
     <fragment android:id="@+id/expansionSelectionFragment"
               android:name="no.jlwcrews.dmcv2.views.ui.fragments.ExpansionSelectionFragment"
@@ -50,4 +51,6 @@
     </fragment>
     <fragment android:id="@+id/historyFragment" android:name="no.jlwcrews.dmcv2.views.ui.fragments.HistoryFragment"
               android:label="fragment_history" tools:layout="@layout/fragment_history"/>
+    <fragment android:id="@+id/diceFragment" android:name="no.jlwcrews.dmcv2.views.ui.fragments.DiceFragment" android:label="fragment_dice"
+              tools:layout="@layout/fragment_dice"/>
 </navigation>
