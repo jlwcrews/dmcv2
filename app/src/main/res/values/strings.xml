@@ -43,4 +43,8 @@
     <string name="historyText">Here you can see a history of every time you\'ve used this app. If, for some reason, you
         ever wanted to do that.
     </string>
+    <string name="historyIdText">Id</string>
+    <string name="historyDateText">Date</string>
+    <string name="historyLocationText">Lat/Long</string>
+    <string name="historyScenarioText">Scenario</string>
 </resources>

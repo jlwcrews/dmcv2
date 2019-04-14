@@ -2,10 +2,10 @@ package no.jlwcrews.dmcv2.views.ui.fragments
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
@@ -38,6 +38,7 @@ class ScenarioSelectionFragment : Fragment() {
         recyclerView?.layoutManager = LinearLayoutManager(this.context!!)
         activity?.let{
             dmcViewModel = ViewModelProviders.of(it).get(DmcViewModel::class.java)
+            it.title = "Scenarios"
         }
         dmcViewModel.initViewModel(adapter.newGameContainer)
         dmcViewModel.scenarios.observe(this, Observer { scenarios ->

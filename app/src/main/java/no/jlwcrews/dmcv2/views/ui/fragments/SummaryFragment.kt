@@ -49,6 +49,9 @@ class SummaryFragment : Fragment() {
         monsterRecyclerView?.layoutManager = LinearLayoutManager(this.context!!)
 
         summaryViewModel.initViewModel(newGameContainer)
+        activity?.let{
+            it.title = "Summary"
+        }
 
         summaryViewModel.scenario.observe(this, Observer { scenario ->
             scenario?.let {scenarioTextView.text = (it.scenarioName)}
