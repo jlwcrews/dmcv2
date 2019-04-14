@@ -36,13 +36,14 @@ class ExpansionSelectionFragment : Fragment() {
         recyclerView?.adapter = adapter
         recyclerView?.layoutManager = LinearLayoutManager(this.context!!)
         activity?.let{
-            dmcViewModel = ViewModelProviders.of(this).get(DmcViewModel::class.java)
+            dmcViewModel = ViewModelProviders.of(it).get(DmcViewModel::class.java)
         }
         dmcViewModel.expansions.observe(this, Observer { expansions ->
-            expansions?.let { adapter.setExpansions(it) }
+            expansions?.let { adapter.setExpansions(it)}
         })
 
         expansionNextButton.setOnClickListener {
+
             val newGameBundle = Bundle()
             newGameBundle.putSerializable("newGame", adapter.newGameContainer)
             it.findNavController().navigate(R.id.scenarioSelectionFragment, newGameBundle)

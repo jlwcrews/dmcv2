@@ -12,13 +12,6 @@
     <string name="action_settings">Settings</string>
     <string name="next">Next</string>
 
-    <!-- Strings for fragment_settings_top -->
-    <string name="settings_top_fragment_title">Settings</string>
-    <string name="settings_top_fragment_text">You can either enter your BGG username and we\'ll look up what expansions
-        you have, or you can select manually:
-    </string>
-    <string name="settings_top_fragment_button">Check BGG</string>
-    <string name="settings_top_fragment_input_box">bgg username</string>
 
     <!-- Checkboxes for expansions and epic monsters -->
     <string name="expUncounted">Uncounted Horrors</string>
@@ -42,7 +35,12 @@
     <string name="summaryText">You are now ready to start the game! Below are your selections, if they are good, then
         click next, otherwise you can go back and change them.
     </string>
+    <string name="finishedButton">Finished</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="historyButton">History</string>
+    <string name="historyText">Here you can see a history of every time you\'ve used this app. If, for some reason, you
+        ever wanted to do that.
+    </string>
 </resources>

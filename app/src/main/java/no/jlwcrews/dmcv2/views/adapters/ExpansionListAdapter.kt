@@ -28,9 +28,8 @@ class ExpansionListAdapter internal constructor(context: Context) : RecyclerView
 
     override fun onBindViewHolder(holder: ExpansionViewHolder, position: Int) {
         val current = expansions[position]
-
         holder.itemView.checkBoxExpansion.setOnClickListener{
-            newGameContainer.expansions.set(current.expansionId, holder.itemView.checkBoxExpansion.isChecked)
+            newGameContainer.expansions[current.expansionId] = holder.itemView.checkBoxExpansion.isChecked
         }
         holder.expansionNameView.text = current.expansionName
     }

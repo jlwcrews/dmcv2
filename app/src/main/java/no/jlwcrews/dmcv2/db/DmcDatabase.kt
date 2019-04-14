@@ -1,19 +1,19 @@
 package no.jlwcrews.dmcv2.db
 
-import androidx.sqlite.db.SupportSQLiteDatabase
+import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import android.content.Context
+import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import no.jlwcrews.dmc.db.dao.*
 import no.jlwcrews.dmc.db.entities.*
-import no.jlwcrews.dmcv2.db.entities.Expansion
 import no.jlwcrews.dmcv2.db.dao.ExpansionDao
 import no.jlwcrews.dmcv2.db.dao.MonsterActionWithActionDao
 import no.jlwcrews.dmcv2.db.dao.MonsterWithTypeDao
+import no.jlwcrews.dmcv2.db.entities.Expansion
 
 @Database(entities = arrayOf(
     Expansion::class,
@@ -27,7 +27,7 @@ import no.jlwcrews.dmcv2.db.dao.MonsterWithTypeDao
     ScenarioCard::class,
     ScenarioTile::class,
     Tile::class
-    ), version = 7)
+    ), version = 9)
 public abstract class DmcDatabase : RoomDatabase() {
 
     abstract fun actionDao(): ActionDao
@@ -82,9 +82,16 @@ public abstract class DmcDatabase : RoomDatabase() {
                         populateTiles(database.tileDao())
                         populateMonsterActions(database.monsterActionDao())
                         populateScenarioTiles(database.scenarioTileDao())
+                        populateSampleHistory(database.historyDao())
                     }
                 }
             }
+        }
+
+        private fun populateSampleHistory(historyDao: HistoryDao) {
+            historyDao.deleteAllHistory()
+            historyDao.insert(History(0,"XYZ", "XYZ", 1))
+            historyDao.insert(History(0,"XYZ", "XYZ", 1))
         }
 
         private fun populateExpansions(expansionDao: ExpansionDao) {

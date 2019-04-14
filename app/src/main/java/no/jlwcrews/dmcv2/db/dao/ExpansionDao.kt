@@ -12,6 +12,9 @@ interface ExpansionDao {
     @Query("SELECT * from dmc_expansions")
     fun getAllExpansions(): LiveData<List<Expansion>>
 
+    @Query("select * from dmc_expansions where expansion_id in (:expansionId)")
+    fun getExpansionsFromApi(expansionId: List<Int>): LiveData<List<Expansion>>
+
     @Insert
     fun insert(expansion: Expansion)
 

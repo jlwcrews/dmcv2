@@ -50,9 +50,8 @@ class ScenarioListAdapter internal constructor(context: Context) : RecyclerView.
         fun bindItems(scenario: Scenario, position: Int, selectedPosition: Int){
             itemView.scenarioRadioButton.tag = scenario.scenarioId
 
-            when {
-                //selectedPosition == -1 && position == 0 -> itemView.scenarioRadioButton.isChecked = true
-                selectedPosition == position -> itemView.scenarioRadioButton.isChecked = true
+            when (selectedPosition) {
+                position -> itemView.scenarioRadioButton.isChecked = true
                 else -> itemView.scenarioRadioButton.isChecked = false
             }
 

@@ -6,9 +6,11 @@ import androidx.lifecycle.LiveData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import no.jlwcrews.dmc.db.entities.History
 import no.jlwcrews.dmc.db.entities.PlayerCharacter
 import no.jlwcrews.dmc.db.entities.Scenario
 import no.jlwcrews.dmc.db.repo.CharacterRepo
+import no.jlwcrews.dmc.db.repo.HistoryRepo
 import no.jlwcrews.dmc.db.repo.MonsterWithTypeRepo
 import no.jlwcrews.dmc.db.repo.ScenarioRepo
 import no.jlwcrews.dmcv2.db.DmcDatabase
@@ -29,11 +31,13 @@ class DmcViewModel(application: Application): AndroidViewModel(application){
     private val repositoryMonsters: MonsterWithTypeRepo
     private val repositoryScenario: ScenarioRepo
     private val repositoryExpansion: ExpansionRepo
+    private val repositoryHistory: HistoryRepo
 
     lateinit var characters: LiveData<List<PlayerCharacter>>
     lateinit var monsters: LiveData<List<MonsterWithType>>
     lateinit var scenarios: LiveData<List<Scenario>>
     lateinit var scenario: LiveData<Scenario>
+    var history: LiveData<List<History>>
     var expansions: LiveData<List<Expansion>>
 
     init {
@@ -41,11 +45,14 @@ class DmcViewModel(application: Application): AndroidViewModel(application){
         val monsterDao = DmcDatabase.getDatabase(application, scope).monsterWithTypeDao()
         val scenarioDao = DmcDatabase.getDatabase(application, scope).scenarioDao()
         val expansionDao = DmcDatabase.getDatabase(application, scope).expansionDao()
+        val historyDao = DmcDatabase.getDatabase(application, scope).historyDao()
 
         repositoryCharacter = CharacterRepo(characterDao)
         repositoryMonsters = MonsterWithTypeRepo(monsterDao)
         repositoryScenario = ScenarioRepo(scenarioDao)
         repositoryExpansion = ExpansionRepo(expansionDao)
+        repositoryHistory = HistoryRepo(historyDao)
+        history = repositoryHistory.allHistory
         expansions = repositoryExpansion.allExpansions
     }
 

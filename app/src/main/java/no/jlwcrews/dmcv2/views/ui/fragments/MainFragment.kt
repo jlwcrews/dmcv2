@@ -24,6 +24,8 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         newGameButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.to_expansion_selection))
+
+        historyButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.to_history))
     }
 
 

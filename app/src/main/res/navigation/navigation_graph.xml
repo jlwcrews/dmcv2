@@ -11,8 +11,7 @@
               tools:layout="@layout/fragment_main">
         <action android:id="@+id/to_expansion_selection"
                 app:destination="@id/expansionSelectionFragment"/>
-        <action android:id="@+id/to_settings"
-                app:destination="@id/settingsFragment"/>
+        <action android:id="@+id/to_history" app:destination="@id/historyFragment"/>
     </fragment>
     <fragment android:id="@+id/expansionSelectionFragment"
               android:name="no.jlwcrews.dmcv2.views.ui.fragments.ExpansionSelectionFragment"
@@ -42,10 +41,6 @@
         <action android:id="@+id/to_summary"
                 app:destination="@id/summaryFragment"/>
     </fragment>
-    <fragment android:id="@+id/settingsFragment"
-              android:name="no.jlwcrews.dmcv2.views.ui.fragments.SettingsFragment"
-              android:label="fragment_settings"
-              tools:layout="@layout/fragment_settings"/>
     <fragment android:id="@+id/summaryFragment"
               android:name="no.jlwcrews.dmcv2.views.ui.fragments.SummaryFragment"
               android:label="fragment_summary"
@@ -53,4 +48,6 @@
         <action android:id="@+id/to_main_fragment"
                 app:destination="@id/mainFragment"/>
     </fragment>
+    <fragment android:id="@+id/historyFragment" android:name="no.jlwcrews.dmcv2.views.ui.fragments.HistoryFragment"
+              android:label="fragment_history" tools:layout="@layout/fragment_history"/>
 </navigation>

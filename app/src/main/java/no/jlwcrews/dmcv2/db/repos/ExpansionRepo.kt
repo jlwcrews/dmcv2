@@ -9,6 +9,11 @@ class ExpansionRepo(private val expansionDao: ExpansionDao) {
 
     val allExpansions: LiveData<List<Expansion>> = expansionDao.getAllExpansions()
 
+    fun getExpansionsByApiId(expansionId: List<Int>): LiveData<List<Expansion>>{
+        return expansionDao.getExpansionsFromApi(expansionId)
+    }
+
+
     @WorkerThread
     suspend fun insert(exansion: Expansion) {
         expansionDao.insert(exansion)

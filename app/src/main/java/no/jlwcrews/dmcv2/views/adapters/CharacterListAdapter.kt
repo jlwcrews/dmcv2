@@ -39,11 +39,11 @@ class CharacterListAdapter internal constructor(
                     holder.itemView.checkBoxCharacter.isChecked = false
                     Toast.makeText(context, "Maximum of 6 characters.", Toast.LENGTH_LONG).show()
                 } else{
-                    newGameContainer.characters.set(current.characterId, true)
+                    newGameContainer.characters[current.characterId] = true
                     count++
                 }
             } else {
-                newGameContainer.characters.set(current.characterId, false)
+                newGameContainer.characters[current.characterId] = false
                 count--
             }
         }

@@ -7,20 +7,16 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "dmc_history")
 data class History(
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "history_id")
-    val historyId: Int,
+    val historyId: Long,
 
     @ColumnInfo(name="history_date")
-    val historyDate: String,
+    var historyDate: String,
 
     @ColumnInfo(name="history_location")
     val historyLocation: String,
 
     @ColumnInfo(name="history_scenario_id")
-    val historyScenarioId: Int,
-
-    @ColumnInfo(name="history_result")
-    val historyResult: String
-
+    val historyScenarioId: Int
 )

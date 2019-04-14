@@ -38,11 +38,11 @@ class MonsterListAdapter internal constructor(
                     holder.itemView.checkBoxMonster.isChecked = false
                     Toast.makeText(context, "Maximum of 6 monsters.", Toast.LENGTH_LONG).show()
                 } else{
-                    newGameContainer.monsters.set(current.monster.monsterId, true)
+                    newGameContainer.monsters[current.monster.monsterId] = true
                     count++
                 }
             } else {
-                newGameContainer.monsters.set(current.monster.monsterId, false)
+                newGameContainer.monsters[current.monster.monsterId] = false
                 count--
             }
         }

@@ -2,12 +2,13 @@ package no.jlwcrews.dmcv2.views.ui.fragments
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_summary.*
@@ -60,6 +61,12 @@ class SummaryFragment : Fragment() {
         summaryViewModel.monsters.observe(this, Observer { monsters ->
             monsters?.let { monsterAdapter.setMonsters(it) }
         })
+
+        finishedButton.setOnClickListener {
+            summaryViewModel.writeHistoryEntry(newGameContainer, this.context!!)
+
+            it.findNavController().navigate(R.id.to_main_fragment)
+        }
     }
 
 }
