@@ -46,6 +46,7 @@ dependencies {
     implementation 'com.loopj.android:android-async-http:1.4.9'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.google.android.gms:play-services-location:16.0.0'
+    implementation 'com.github.Gavras:MultiLineRadioGroup:v1.0.0.6'
 
     // Room components
     implementation "androidx.room:room-runtime:$rootProject.roomVersion"

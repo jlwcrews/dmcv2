@@ -6,54 +6,125 @@
                                                    android:layout_height="match_parent"
                                                    tools:context=".views.ui.fragments.DiceFragment"
                                                    android:id="@+id/constraintLayout">
+
     <TextView
+            android:id="@+id/diceInstructionsText"
             android:text="@string/diceSelectText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView6" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.06999999"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_margin="16dp"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
     <RadioGroup
-            android:layout_width="113dp"
-            android:layout_height="198dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintVertical_bias="0.01999998"
-            app:layout_constraintHorizontal_bias="0.03" android:id="@+id/diceGroup">
-        <RadioButton
-                android:text="@string/radioDice1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/radioDice1" android:layout_weight="1"/>
-        <RadioButton
-                android:text="@string/radioDice2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/radioDice2" android:layout_weight="1"/>
-        <RadioButton
-                android:text="@string/radioDice3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/radioDice3" android:layout_weight="1"/>
-        <RadioButton
-                android:text="@string/radioDice4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/radioDice4" android:layout_weight="1"/>
-        <RadioButton
-                android:text="@string/radioDice5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/radioDice5" android:layout_weight="1"/>
-        <RadioButton
-                android:text="@string/radioDice6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/radioDice6" android:layout_weight="1"/>
-    </RadioGroup>
-    <TextView
+            android:id="@+id/diceGroup1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/resultDiceView" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintVertical_bias="0.75"/>
+            app:layout_constraintTop_toBottomOf="@id/diceInstructionsText"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/radioDice1"
+            android:text="@string/radioDice1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:checked="true"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="10dp"/>
+        <RadioButton
+            android:id="@+id/radioDice2"
+            android:text="@string/radioDice2"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="10dp"/>
+        <RadioButton
+            android:id="@+id/radioDice3"
+            android:text="@string/radioDice3"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="10dp"/>
+
+        <RadioButton
+            android:id="@+id/radioDice4"
+            android:text="@string/radioDice4"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="10dp"/>
+        <RadioButton
+            android:id="@+id/radioDice5"
+            android:text="@string/radioDice5"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="10dp"/>
+        <RadioButton
+            android:id="@+id/radioDice6"
+            android:text="@string/radioDice6"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="10dp"/>
+    </RadioGroup>
+
+    <TableLayout
+        android:id="@+id/imageTable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/diceGroup1"
+        android:layout_marginTop="40dp">
+
+        <TableRow>
+            <ImageView
+                android:id="@+id/dieOne"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitXY"
+            />
+            <ImageView
+                android:id="@+id/dieTwo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitXY"
+            />
+            <ImageView
+                android:id="@+id/dieThree"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitXY"
+            />
+        </TableRow>
+        <TableRow>
+            <ImageView
+                android:id="@+id/dieFour"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitXY"
+            />
+            <ImageView
+                android:id="@+id/dieFive"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitXY"
+            />
+            <ImageView
+                android:id="@+id/dieSix"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitXY"
+            />
+        </TableRow>
+
+    </TableLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

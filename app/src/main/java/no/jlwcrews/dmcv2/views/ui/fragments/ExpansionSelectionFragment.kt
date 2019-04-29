@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -45,9 +46,13 @@ class ExpansionSelectionFragment : Fragment() {
 
         expansionNextButton.setOnClickListener {
 
-            val newGameBundle = Bundle()
-            newGameBundle.putSerializable("newGame", adapter.newGameContainer)
-            it.findNavController().navigate(R.id.scenarioSelectionFragment, newGameBundle)
+            if(!adapter.newGameContainer.expansions.isNullOrEmpty()){
+                val newGameBundle = Bundle()
+                newGameBundle.putSerializable("newGame", adapter.newGameContainer)
+                it.findNavController().navigate(R.id.scenarioSelectionFragment, newGameBundle)
+            } else {
+                Toast.makeText(this.context!!, "You must select at least one expansion.", Toast.LENGTH_LONG).show()
+            }
         }
     }
 

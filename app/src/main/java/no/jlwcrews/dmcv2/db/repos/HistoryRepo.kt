@@ -77,7 +77,7 @@ class HistoryRepo(private val historyDao: HistoryDao) {
         val fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context)
         val task = fusedLocationProviderClient.lastLocation
         task.addOnSuccessListener {
-            var locationString = "${it.latitude} ${it.latitude}"
+            var locationString = "${it.latitude} / ${it.latitude}"
             if(locationString.isNullOrEmpty()) locationString = "Unable to get location."
             newHistory.historyLocation = locationString
             GlobalScope.launch(Dispatchers.IO) {

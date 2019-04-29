@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -46,9 +47,14 @@ class ScenarioSelectionFragment : Fragment() {
         })
 
         scenarioNextButton.setOnClickListener {
-            val newGameBundle: Bundle = Bundle()
-            newGameBundle.putSerializable("newGame", adapter.newGameContainer)
-            it.findNavController().navigate(R.id.characterSelectionFragment, newGameBundle)
+            if(adapter.newGameContainer.scenario != 0){
+                val newGameBundle: Bundle = Bundle()
+                newGameBundle.putSerializable("newGame", adapter.newGameContainer)
+                it.findNavController().navigate(R.id.characterSelectionFragment, newGameBundle)
+            } else {
+                Toast.makeText(this.context!!, "You must select a scenario.", Toast.LENGTH_LONG).show()
+            }
+
         }
     }
 }
