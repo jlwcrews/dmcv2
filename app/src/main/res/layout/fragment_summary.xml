@@ -6,84 +6,96 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".views.ui.fragments.SummaryFragment"
-        android:id="@+id/constraintLayout">
+        android:id="@id/constraintLayout">
 
     <TextView
-            android:layout_width="379dp"
-            android:layout_height="wrap_content"
             android:id="@+id/summaryText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/summaryText"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="16dp"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textStyle="bold"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"/>
 
     <TextView
-            android:layout_width="100dp"
-            android:layout_height="20dp"
             android:id="@+id/scenarioLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@string/scenarioLabel"
-            android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/summaryText"
-            android:layout_marginBottom="16dp" app:layout_constraintBottom_toTopOf="@+id/labelCharacters"
-            app:layout_constraintVertical_bias="0.25" android:layout_marginStart="16dp"
-            app:layout_constraintStart_toStartOf="parent" android:textSize="18sp"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/summaryText"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"/>
 
     <TextView
-
-            android:layout_width="138dp"
-            android:layout_height="50dp"
             android:id="@+id/scenarioTextView"
-            app:layout_constraintTop_toTopOf="@+id/scenarioLabel"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintStart_toEndOf="@+id/scenarioLabel"
-            android:layout_marginStart="32dp"
-            app:layout_constraintHorizontal_bias="0.0" android:textSize="18sp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/summaryText"
+            app:layout_constraintLeft_toLeftOf="@id/characterRecyclerView"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="8dp"
+    />
+
+    <TextView
+            android:id="@+id/labelCharacters"
+            android:text="@string/characterLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scenarioLabel"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+    />
 
     <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="0dp"
-            android:layout_height="180dp"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             android:id="@+id/characterRecyclerView"
             tools:listitem="@layout/recyclerview_character_summary"
-            app:layout_constraintTop_toTopOf="@+id/labelCharacters"
-            app:layout_constraintStart_toEndOf="@+id/labelCharacters" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="16dp" android:layout_marginStart="32dp"
-            app:layout_constraintHorizontal_bias="0.0"/>
+            app:layout_constraintTop_toTopOf="@id/labelCharacters"
+            app:layout_constraintLeft_toRightOf="@id/labelCharacters"
+            android:layout_marginStart="16dp"
+    />
+
+    <TextView
+            android:id="@+id/labelMonsters"
+            android:text="@string/monsterLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/characterRecyclerView"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+    />
 
     <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="0dp"
-            android:layout_height="181dp"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             android:id="@+id/monsterRecyclerView"
             tools:listitem="@layout/recyclerview_monster_summary"
-            app:layout_constraintTop_toTopOf="@+id/labelMonsters"
-            app:layout_constraintStart_toEndOf="@+id/labelMonsters" android:layout_marginStart="32dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
-            app:layout_constraintHorizontal_bias="0.0"/>
+            app:layout_constraintTop_toTopOf="@id/labelMonsters"
+            app:layout_constraintLeft_toLeftOf="@id/characterRecyclerView"
+    />
 
-    <TextView
-            android:text="@string/characterLabel"
-            android:layout_width="100dp"
-            android:layout_height="20dp"
-            android:id="@+id/labelCharacters"
-            android:layout_marginBottom="16dp" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/summaryText"
-            app:layout_constraintVertical_bias="0.25" android:layout_marginStart="16dp"
-            app:layout_constraintStart_toStartOf="parent" android:textSize="18sp"/>
-
-    <TextView
-            android:text="@string/monsterLabel"
-            android:layout_width="100dp"
-            android:layout_height="20dp"
-            android:id="@+id/labelMonsters"
-            android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/labelCharacters"
-            android:layout_marginBottom="16dp" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp" android:textSize="18sp"/>
     <Button
+            android:id="@+id/finishedButton"
             android:text="@string/finishedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/finishedButton" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+    />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
